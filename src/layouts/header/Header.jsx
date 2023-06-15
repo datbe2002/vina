@@ -6,6 +6,7 @@ import logo from '../../assets/pics/logo.png'
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isActive, setIsActive] = useState(false);
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0) {
@@ -20,6 +21,15 @@ const Header = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
+    const scrollToHomeSession = () => {
+        const homeSessionElement = document.querySelector('.home-session');
+        if (homeSessionElement) {
+            homeSessionElement.scrollIntoView({ behavior: 'smooth' });
+            setIsActive(true);
+        }
+    };
+
     return (
         <div className='header-container'>
             <nav className={`header-navbar ${isScrolled ? 'scrolled' : ''}`}>
@@ -28,9 +38,10 @@ const Header = () => {
                         <span >
                             <img src={logo} width={55} height={55} alt="loogo" />
                         </span>
-                        <li className='li-navbar'>
-                            <NavLink to="#" style={({ isActive }) => (
-                                { color: isActive ? '$secondary-color' : '$middlecolor' })}>
+                        <li className='li-navbar' style={{ fontSize: '32px' }}>
+                            <NavLink onClick={scrollToHomeSession} style={{
+                                color: isActive ? '$secondary-color' : '$middlecolor'
+                            }}>
                                 Home
                             </NavLink>
                         </li>

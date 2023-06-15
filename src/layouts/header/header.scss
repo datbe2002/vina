@@ -20,13 +20,13 @@
             overflow: hidden;
             display: flex;
             padding-top: 45px;
-            padding-bottom: 45px;
+            padding-bottom: 30px;
             font-weight: 400;
             font-size: 24px;
 
             .li-navbar {
                 margin: 0 10px;
-                padding-top: 5px;
+                // padding-top: 3px;
 
                 a {
                     color: $secondary-color;

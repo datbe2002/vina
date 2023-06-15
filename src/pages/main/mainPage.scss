@@ -1,5 +1,48 @@
+@import '../../assets/scss/variable.scss';
+
+
 .main-page-container {
     height: 1000vh;
-    width: 100vw;
     background: linear-gradient(90deg, #DBDEE3 0%, #C6E4FF 100%);
+
+    .home-session {
+        padding-top: 170px;
+        width: 100vw;
+
+        .main-picture {
+            box-sizing: border-box;
+            text-align: center;
+            margin: 0 auto;
+            height: 40vh;
+        }
+
+        .custom-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .button-started {
+                background-color: $secondary-color;
+                border-radius: 50px;
+                font-family: $main-font;
+                height: 3.75rem;
+                width: 12rem;
+                filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            }
+        }
+
+        .box-info {
+            width: 50rem;
+            padding-top: 29px;
+            margin: 48px auto 0 auto;
+            text-align: center;
+            font-weight: 300;
+            font-size: 24px;
+            line-height: 29.26px;
+            color: $middle-color;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-top: 1px solid $middle-color;
+        }
+    }
+
 }
