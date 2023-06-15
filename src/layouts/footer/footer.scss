@@ -1,0 +1,94 @@
+@import '../../assets/scss/variable.scss';
+
+.footer-container {
+    background: linear-gradient(90deg, rgba(156, 205, 219, 0.2) 0%, rgba(254, 159, 184, 0.2) 100%);
+    flex-shrink: 0;
+    z-index: 999;
+    width: 100%;
+    height: 519px !important;
+
+    &__text {
+        h4 {
+            padding-top: 2rem;
+            margin: 0;
+            font-size: 32px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    }
+
+    &__contact {
+        display: grid;
+        justify-items: stretch;
+        grid-template-columns: 1fr 1fr;
+
+        &--infos {
+            padding: 65px 0px 0 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+
+            .contain-icon-info {
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+                align-items: center;
+                font-size: 24px;
+                font-weight: 400;
+                padding-bottom: 24px;
+
+                .infosss {
+                    padding-bottom: 10px;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                }
+            }
+        }
+
+        &--textlot {
+            padding-top: 65px;
+            border-left: 1px solid black;
+
+            .text-second {
+                text-align: center;
+                font-size: 32px;
+                font-weight: 300;
+            }
+
+            .text-under {
+                word-wrap: break-word;
+                width: 40rem;
+                margin: 0 auto;
+                font-size: 24px;
+                font-weight: 300;
+                text-align: center;
+                line-height: 29px;
+                padding-top: 44px;
+
+            }
+        }
+    }
+
+    // &__contact {
+
+    // }
+}
+
+// @media screen and (max-width: 768px) {
+//     .footer-container {
+//         height: 10%;
+//     }
+// }
+
+// @media screen and (min-width: 769px) {
+//     .footer-container {
+//         height: 15%;
+//     }
+// }
+
+// @media screen and (min-width: 1200px) {
+//     .footer-container {
+//         height: 20%;
+//     }
+// }
