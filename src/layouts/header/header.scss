@@ -51,4 +51,14 @@
     .header-navbar.scrolled {
         background-color: #333;
     }
+
+    .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: $secondary-color;
+        transform-origin: 0%;
+    }
 }
