@@ -17,7 +17,7 @@ const ServiceCard = () => {
         },
         {
             icon: calendar,
-            text: 'Social Media Management',
+            text: 'Kpop Event Package',
             content: 'Building and managing social media channels such as TikTok, YouTube, etc., for individuals or businesses.',
         },
         {
@@ -27,12 +27,12 @@ const ServiceCard = () => {
         },
         {
             icon: cart,
-            text: 'Social Media Management',
+            text: 'Low-Cost Market Entry',
             content: 'Building and managing social media channels such as TikTok, YouTube, etc., for individuals or businesses.',
         },
         {
             icon: camera,
-            text: 'Social Media Management',
+            text: 'Influencer Experience',
             content: 'Building and managing social media channels such as TikTok, YouTube, etc., for individuals or businesses.',
         },
     ]

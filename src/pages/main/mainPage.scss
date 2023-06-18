@@ -17,6 +17,7 @@
         }
 
         .custom-button {
+            margin-top: 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -156,17 +157,14 @@
                     padding: 1.5rem 0 1.5rem 0;
 
                     .content-box-content-text {
-                        display: none;
                         width: 90%;
                         margin: 0 auto;
                         font-weight: 300;
                         font-size: 24px;
                         word-wrap: break-word;
+                        padding: 10px 10px;
                     }
 
-                    .text {
-                        display: block;
-                    }
                 }
 
                 .taskbar {
@@ -180,7 +178,9 @@
 
                     .text {
                         height: 20px;
-                        display: none;
+                        opacity: 0;
+                        transition: 0.5s;
+
                     }
                 }
 
@@ -188,11 +188,113 @@
                     cursor: pointer;
 
                     .text {
-                        display: block;
+                        opacity: 1;
+                        transition: 0.5s;
                     }
                 }
             }
         }
+
+        .carousel-container {
+            padding-top: 10rem;
+            width: 50vw;
+            color: $main-color;
+            margin: 0 auto;
+
+            h1 {
+                text-align: center;
+                font-size: 2rem;
+                font-weight: 500;
+            }
+
+            .carousel-element {
+                width: 100%;
+                height: 25rem;
+                text-align: center;
+                cursor: grab;
+
+                h3 {
+                    font-size: 2rem;
+                    font-weight: 500;
+                }
+
+                span {
+                    line-height: 34px;
+                    font-size: 28px;
+                    font-weight: 300;
+
+                }
+            }
+        }
+
     }
 
+    .solution-container {
+        margin-top: 10rem;
+        position: relative;
+
+        .solution-introduce {
+            font-size: 2rem;
+            font-weight: 500;
+            color: $main-color;
+            text-align: center;
+        }
+
+        .show-card-container {
+            width: 80%;
+            margin: 0 auto;
+            display: grid;
+            justify-items: stretch;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+
+            .show-card-element {
+                height: 35rem;
+                width: 80%;
+                margin: 20px auto;
+                background-color: $card-color;
+                border-radius: 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .title {
+                    text-align: center;
+                    font-size: 2rem;
+                    font-weight: 300;
+                }
+            }
+
+        }
+
+        .modal-show-card {
+            border-radius: 2rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 3rem;
+            height: 38rem;
+            background-color: $card-color;
+
+            .modal-image {
+                width: 100%;
+                height: 2rem;
+            }
+
+            .modal-close-button {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                font-size: 2rem;
+                font-weight: 500;
+                border: none;
+                width: 2.5rem;
+                border-radius: 50%;
+            }
+        }
+    }
 }

@@ -1,5 +1,7 @@
 import React from 'react'
 import ServiceCard from './ServiceCard'
+import FirstCarousel from './FirstCarousel'
+import SecondCarousel from './SecondCarousel'
 
 const ServiceSession = () => {
     return (
@@ -8,6 +10,8 @@ const ServiceSession = () => {
                 SERVICES
             </div>
             <ServiceCard />
+            <FirstCarousel />
+            <SecondCarousel />
         </div>
     )
 }
