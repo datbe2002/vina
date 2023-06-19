@@ -297,4 +297,16 @@
             }
         }
     }
+
+
+    .brand-container {
+        margin-top: 10rem;
+
+        .brand-introduce {
+            font-size: 2rem;
+            font-weight: 500;
+            color: $main-color;
+            text-align: center;
+        }
+    }
 }

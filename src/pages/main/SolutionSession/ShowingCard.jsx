@@ -10,7 +10,6 @@ const ShowingCard = () => {
     const [selectedId, setSelectedId] = useState(null)
     const [whenChose, setWhenChose] = useState(null)
 
-    console.log(selectedId)
 
     const items = [
         {
