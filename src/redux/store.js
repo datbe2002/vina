@@ -1,8 +1,13 @@
-// import { configureStore } from '@reduxjs/toolkit'
-// // import rootReducer from './reducers'
+import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
+import blogReducer from './slice/blogSlice';
 
-// const store = configureStore({
-//     // reducer: rootReducer,
-// })
+const rootReducer = combineReducers({
+    blog: blogReducer
+});
 
-// export default store
+const store = configureStore({
+    reducer: rootReducer
+});
+
+export default store;

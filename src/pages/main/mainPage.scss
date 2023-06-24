@@ -2,7 +2,7 @@
 
 
 .main-page-container {
-    height: 1000vh;
+    height: fit-content;
 
     .home-session {
         padding-top: 100px;
@@ -30,8 +30,6 @@
                 height: 3.75rem;
                 width: 12rem;
                 filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-
-
             }
 
 
@@ -238,6 +236,8 @@
             font-weight: 500;
             color: $main-color;
             text-align: center;
+            padding-bottom: 3rem;
+
         }
 
         .show-card-container {
@@ -298,9 +298,9 @@
         }
     }
 
-
     .brand-container {
         margin-top: 10rem;
+        height: 45rem;
 
         .brand-introduce {
             font-size: 2rem;
@@ -308,5 +308,119 @@
             color: $main-color;
             text-align: center;
         }
+
+        .brand-second-container {
+            padding-top: 4rem;
+            width: 60%;
+            margin: 0 auto;
+            height: 20rem;
+
+            .line {
+                height: 7rem;
+                display: flex;
+                margin-top: 2rem;
+
+                .circle-container {
+
+                    border-radius: 50%;
+                    overflow: hidden;
+                    margin: 0 auto;
+
+                    img {
+                        width: 150px;
+                        height: 100px;
+                        overflow: hidden;
+                        background-position: center;
+                        background-size: cover;
+                    }
+                }
+            }
+        }
     }
+
+    .blog-container {
+        margin-top: 10rem;
+
+        .blog-introduce {
+            font-size: 2rem;
+            font-weight: 500;
+            color: $main-color;
+            text-align: center;
+            padding-bottom: 4rem;
+        }
+
+        .blog-map-child {
+
+            .post {
+                // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.2)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.2));
+                border-radius: 1rem;
+                background-color: $card-color;
+                width: 60%;
+                margin: 0 auto;
+                display: flex;
+                gap: 2rem;
+                margin-bottom: 2rem;
+                height: fit-content;
+
+                img {
+                    width: 40%;
+                    border-radius: 1rem;
+                }
+
+                .post-content {
+                    .post-title {
+                        margin: 0;
+                        font-size: 1.5rem;
+                    }
+
+                    .info {
+                        margin: 6px 0;
+                        color: #888;
+                        font-size: 1rem;
+                        font-weight: bold;
+
+                        .author {
+                            padding-right: 10px;
+                        }
+                    }
+
+                    h2 {
+                        font-size: 1rem;
+                        margin: 0;
+
+                    }
+
+                    .summary {
+                        font-size: 1rem;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+        }
+
+        .readmore-button {
+            text-align: center;
+
+            .button {
+                width: 10rem;
+                border-radius: 2px;
+                border: none;
+                padding: 10px 15px;
+                background-color: $secondary-color;
+                color: white;
+                font-weight: 600;
+                transition: 0.4s;
+            }
+
+            .button:hover {
+                cursor: pointer;
+                transform: translateY(-5px);
+                background-color: $darker-secondary-color;
+
+            }
+        }
+    }
+
 }

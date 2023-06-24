@@ -1,4 +1,5 @@
 import React from 'react'
+import BrandLoop from './BrandLoop'
 
 const BrandCooperate = () => {
     return (
@@ -6,6 +7,7 @@ const BrandCooperate = () => {
             <div className='brand-introduce'>
                 BRANDS EVER COOPERATED
             </div>
+            <BrandLoop />
         </div>
     )
 }

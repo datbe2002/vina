@@ -14,9 +14,6 @@ export const router = createBrowserRouter([
         element: <MainLayout />,
         errorElement: <ErrorPage />,
         children: [
-
-            //tao route o day nhe
-
             {
                 path: "/",
                 element: <MainPage />,
