@@ -7,6 +7,8 @@ import Login from "../pages/login";
 import MainLayout from "../layouts/mainlayout";
 import MainPage from "../pages/main";
 import Blog from "../pages/blog";
+import BlogDetail from "../pages/blogdetail";
+import EditPage from "../pages/edit";
 
 
 export const router = createBrowserRouter([
@@ -25,6 +27,14 @@ export const router = createBrowserRouter([
             {
                 path: "/blog",
                 element: <Blog />,
+            },
+            {
+                path: "/blog/:id",
+                element: <BlogDetail />,
+            },
+            {
+                path: "/edit/:id",
+                element: <EditPage />,
             },
         ]
     },

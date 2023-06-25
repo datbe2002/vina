@@ -14,6 +14,8 @@ const MainPage = () => {
     useEffect(() => {
         dispatch(getBlog())
     }, [])
+
+
     return (
         <div className='main-page-container'>
             <HomeSession />

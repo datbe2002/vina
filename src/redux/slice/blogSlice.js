@@ -6,7 +6,8 @@ import axios from "axios";
 
 axios.defaults.headers.post["Content-Type"] = "application/json";
 const axiosCus = axios.create({
-    baseURL: "https://vina-landing-page.onrender.com/api",
+    // baseURL: "https://vina-landing-page.onrender.com/api",
+    baseURL: "http://localhost:3000/api",
 });
 
 
@@ -15,6 +16,7 @@ const initialState = {
     msg: "",
     loading: false,
     error: "",
+    USER: false
 };
 
 export const getBlog = createAsyncThunk("blog/getAll", async (params, thunkAPI) => {
@@ -23,7 +25,7 @@ export const getBlog = createAsyncThunk("blog/getAll", async (params, thunkAPI) 
         const result = await axiosCus.get("/blog");
         return result.data;
     } catch (error) {
-        throw new Error("Invalid email or password");
+        throw new Error("exception");
     }
 });
 
@@ -31,7 +33,9 @@ export const blogSlice = createSlice({
     name: "blog",
     initialState,
     reducers: {
-
+        setUserAuth: (state, action) => {
+            state.USER = action.payload;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -48,6 +52,6 @@ export const blogSlice = createSlice({
             })
     },
 });
-const { reducer: blogReducer } = blogSlice;
+const { reducer: blogReducer, actions: { setUserAuth } } = blogSlice;
 
-export default blogReducer
+export { setUserAuth, blogReducer as default };

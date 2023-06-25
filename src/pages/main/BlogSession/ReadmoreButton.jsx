@@ -1,14 +1,18 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 const ReadmoreButton = () => {
 
 
 
     return (
+
         <motion.div className='readmore-button'>
-            <button className='button'>
-                READ MORE...
-            </button>
+            <Link to={'/blog'}>
+                <button className='button'>
+                    READ MORE...
+                </button>
+            </Link>
         </motion.div>
     )
 }

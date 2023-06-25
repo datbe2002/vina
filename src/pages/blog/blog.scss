@@ -25,11 +25,13 @@
 
     .post {
         width: 80%;
-        margin: 0 auto;
+        margin: 1rem auto;
         display: flex;
         gap: 2rem;
         padding-bottom: 2rem;
         height: fit-content;
+        text-decoration: none;
+        color: inherit;
 
         img {
             width: 40%;
@@ -38,6 +40,7 @@
         }
 
         .post-content {
+            width: 100vw;
 
             .info {
                 margin: 6px 0;
@@ -54,6 +57,19 @@
                 font-size: 1.5rem;
                 margin: 0;
 
+            }
+
+            .summary {
+
+                p {
+
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    font-size: 1rem;
+                    overflow: hidden;
+
+                }
             }
         }
     }

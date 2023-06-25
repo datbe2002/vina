@@ -1,0 +1,130 @@
+.post-page {
+    width: 100vw;
+    padding-top: 140px;
+    text-align: center;
+    position: relative;
+
+    .image {
+        max-height: 300px;
+        display: flex;
+        overflow: hidden;
+
+        img {
+            object-fit: cover;
+            object-position: center center;
+            width: 100%;
+        }
+
+    }
+
+    a {
+        color: #333;
+        text-decoration: underline;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 10px 0 5px;
+    }
+
+    time {
+        text-align: center;
+        display: block;
+        font-size: 1rem;
+        color: #aaa;
+        margin: 10px 0;
+    }
+
+    .author {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .edit-row {
+        display: flex;
+        align-items: center;
+        justify-content: right;
+
+        .edit-btn {
+            cursor: pointer;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            width: 2rem;
+            padding: 10px 10px;
+        }
+    }
+
+    .content {
+        width: 80%;
+        margin: 0 auto;
+        padding: 2rem 0;
+    }
+
+    .login-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        .login-popup {
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            position: absolute;
+            right: 60px;
+            top: 280px;
+            background-color: white;
+            border-radius: 1rem;
+
+            .form-login {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 60%;
+                margin: 0 auto;
+                padding-bottom: 4rem;
+
+                input {
+                    height: 30px;
+                    border-radius: 5px;
+                    border: 1px solid black;
+                    padding-left: .7rem;
+                }
+
+                button {
+                    background-color: #333;
+                    border: none;
+                    min-height: 3rem;
+                    color: #fff;
+                    font-weight: bold;
+                    border-radius: 5px;
+                    font-size: 1rem;
+                    cursor: pointer;
+                }
+            }
+
+            .close-button {
+                width: 30px;
+                height: 30px;
+                border: none;
+                margin: 1rem 1rem;
+                border-radius: 50%;
+            }
+
+            .close-button:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+}

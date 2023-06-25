@@ -3,6 +3,7 @@
 
 .main-page-container {
     height: fit-content;
+    width: 99vw;
 
     .home-session {
         padding-top: 100px;
@@ -360,7 +361,10 @@
                 display: flex;
                 gap: 2rem;
                 margin-bottom: 2rem;
-                height: fit-content;
+                max-height: 220px;
+                min-height: 170px;
+                text-decoration: none;
+                color: inherit;
 
                 img {
                     width: 40%;
@@ -368,8 +372,10 @@
                 }
 
                 .post-content {
+                    width: 100vw;
+
                     .post-title {
-                        margin: 0;
+                        margin-top: 0;
                         font-size: 1.5rem;
                     }
 
@@ -391,11 +397,18 @@
                     }
 
                     .summary {
-                        font-size: 1rem;
-                        white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
+
+                        p {
+
+                            display: -webkit-box;
+                            -webkit-line-clamp: 3;
+                            -webkit-box-orient: vertical;
+                            font-size: 1rem;
+                            overflow: hidden;
+
+                        }
                     }
+
                 }
             }
         }

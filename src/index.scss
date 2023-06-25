@@ -1,5 +1,11 @@
 @import './assets/scss/variable.scss';
 
+
+html {
+  background: linear-gradient(90deg, #DBDEE3 0%, #C6E4FF 100%);
+
+}
+
 :root {
   font-family: $main-font;
   line-height: 1.5;
@@ -9,13 +15,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  background: linear-gradient(90deg, #DBDEE3 0%, #C6E4FF 100%);
 }
 
 
 body {
   margin: 0;
   display: flex;
-  min-width: 320px;
+  min-width: 100vw;
   min-height: 100vh;
 }
