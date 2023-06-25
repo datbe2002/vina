@@ -1,6 +1,7 @@
 import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
 import './contact.scss';
+import contactImage from '../../assets/pics/contactlogo.png';
 
 const ContactPage = ({ onSubmit }) => {
     const [firstName, setFirstName] = useState('');
@@ -42,76 +43,78 @@ const ContactPage = ({ onSubmit }) => {
     };
 
     return (
+
         <div className='contact-page'>
-            <div className="contact-container">
+            <div className='contact-image-container'>
+                <img src={contactImage} alt='Contact' className='contact-image' />
+            </div>
+            <div className='contact-container'>
                 <form onSubmit={handleSubmit}>
-                    <div className="name-group">
-                        <div className="form-group">
-                            <label htmlFor="firstName">First Name:</label>
+                    <div className='name-group'>
+                        <div className='form-group'>
+                            <label htmlFor='firstName'>First Name:</label>
                             <input
                                 className='first-name'
-                                type="text"
-                                id="firstName"
+                                type='text'
+                                id='firstName'
                                 value={firstName}
                                 onChange={handleFirstNameChange}
                                 required
                             />
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="lastName">Last Name:</label>
+                        <div className='form-group'>
+                            <label htmlFor='lastName'>Last Name:</label>
                             <input
-                            className='last-name'
-                                type="text"
-                                id="lastName"
+                                className='last-name'
+                                type='text'
+                                id='lastName'
                                 value={lastName}
                                 onChange={handleLastNameChange}
                                 required
                             />
                         </div>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="email">Email:</label>
+                    <div className='form-group'>
+                        <label htmlFor='email'>Email:</label>
                         <input
-                        className='email'
-                            type="email"
-                            id="email"
+                            className='email'
+                            type='email'
+                            id='email'
                             value={email}
                             onChange={handleEmailChange}
                             required
                         />
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="subject">Subject:</label>
+                    <div className='form-group'>
+                        <label htmlFor='subject'>Subject:</label>
                         <input
-                        className='subject'
-                            type="text"
-                            id="subject"
+                            className='subject'
+                            type='text'
+                            id='subject'
                             value={subject}
                             onChange={handleSubjectChange}
                             required
                         />
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="message">Message:</label>
+                    <div className='form-group'>
+                        <label htmlFor='message'>Message:</label>
                         <textarea
-                            id="message"
+                            id='message'
                             value={message}
                             onChange={handleMessageChange}
                             required
-                            className="textarea"
+                            className='textarea'
                         />
-
                     </div>
-                    <button type="submit">Submit</button>
+                    <button type='submit'>Submit</button>
                 </form>
             </div>
         </div>
-
     );
 };
 
 ContactPage.propTypes = {
-    onsubmit: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
 };
 
 export default memo(ContactPage);
