@@ -32,10 +32,8 @@ const ContactPage = ({ onSubmit }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Pass the form data to the onSubmit function
         onSubmit({ firstName, lastName, email, subject, message });
 
-        // Reset form fields
         setFirstName('');
         setLastName('');
         setEmail('');
@@ -44,69 +42,76 @@ const ContactPage = ({ onSubmit }) => {
     };
 
     return (
-        <div className="contact-container">
-            <form onSubmit={handleSubmit}>
-                <div className="name-group">
+        <div className='contact-page'>
+            <div className="contact-container">
+                <form onSubmit={handleSubmit}>
+                    <div className="name-group">
+                        <div className="form-group">
+                            <label htmlFor="firstName">First Name:</label>
+                            <input
+                                className='first-name'
+                                type="text"
+                                id="firstName"
+                                value={firstName}
+                                onChange={handleFirstNameChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="lastName">Last Name:</label>
+                            <input
+                            className='last-name'
+                                type="text"
+                                id="lastName"
+                                value={lastName}
+                                onChange={handleLastNameChange}
+                                required
+                            />
+                        </div>
+                    </div>
                     <div className="form-group">
-                        <label htmlFor="firstName">First Name:</label>
+                        <label htmlFor="email">Email:</label>
                         <input
-                            type="text"
-                            id="firstName"
-                            value={firstName}
-                            onChange={handleFirstNameChange}
+                        className='email'
+                            type="email"
+                            id="email"
+                            value={email}
+                            onChange={handleEmailChange}
                             required
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="lastName">Last Name:</label>
+                        <label htmlFor="subject">Subject:</label>
                         <input
+                        className='subject'
                             type="text"
-                            id="lastName"
-                            value={lastName}
-                            onChange={handleLastNameChange}
+                            id="subject"
+                            value={subject}
+                            onChange={handleSubjectChange}
                             required
                         />
                     </div>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        value={email}
-                        onChange={handleEmailChange}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="subject">Subject:</label>
-                    <input
-                        type="text"
-                        id="subject"
-                        value={subject}
-                        onChange={handleSubjectChange}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="message">Message:</label>
-                    <textarea
-                        id="message"
-                        value={message}
-                        onChange={handleMessageChange}
-                        required
-                        className="textarea-fixed-height" 
-                    />
+                    <div className="form-group">
+                        <label htmlFor="message">Message:</label>
+                        <textarea
+                            id="message"
+                            value={message}
+                            onChange={handleMessageChange}
+                            required
+                            className="textarea"
+                        />
 
-                </div>
-                <button type="submit">Submit</button>
-            </form>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
         </div>
+
     );
 };
 
 ContactPage.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
+    onsubmit: PropTypes.func.isRequired,
 };
 
 export default memo(ContactPage);

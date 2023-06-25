@@ -14,14 +14,14 @@ const Footer = () => {
             <div className='footer-container__text'>
                 <h4>Let's Keep in Touch</h4>
             </div>
-            {/* 
-            <div class="grid-container">
-  <div class="grid-item">
 
-  </div>
-  <div class="grid-item">2</div>
- 
-</div> */}
+            <div class="grid-container">
+                <div class="grid-item">
+
+                </div>
+                <div class="grid-item">2</div>
+
+            </div>
 
 
             <div className='footer-container__contact'>
