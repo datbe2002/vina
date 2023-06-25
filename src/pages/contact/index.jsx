@@ -9,6 +9,7 @@ const ContactPage = ({ onSubmit }) => {
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleFirstNameChange = (e) => {
         setFirstName(e.target.value);
@@ -33,6 +34,8 @@ const ContactPage = ({ onSubmit }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        setIsSubmitting(true);
+
         onSubmit({ firstName, lastName, email, subject, message });
 
         setFirstName('');
@@ -40,7 +43,10 @@ const ContactPage = ({ onSubmit }) => {
         setEmail('');
         setSubject('');
         setMessage('');
+
+        setIsSubmitting(false);
     };
+
 
     return (
 
@@ -106,7 +112,9 @@ const ContactPage = ({ onSubmit }) => {
                             className='textarea'
                         />
                     </div>
-                    <button type='submit'>Submit</button>
+                    <button type='submit' disabled={isSubmitting}>
+                        {isSubmitting ? 'Submitting...' : 'Submit'}
+                    </button>
                 </form>
             </div>
         </div>
