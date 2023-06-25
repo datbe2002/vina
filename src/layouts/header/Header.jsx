@@ -1,6 +1,7 @@
+import { motion, useScroll } from "framer-motion"
 import React, { useEffect, useState } from 'react'
 import "./header.scss"
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import '../../assets/scss/variable.scss'
 import logo from '../../assets/pics/logo.png'
 
@@ -29,14 +30,33 @@ const Header = () => {
             setIsActive(true);
         }
     };
+    const scrollToAboutSession = () => {
+        const aboutSessionElement = document.querySelector('.introduce');
+        if (aboutSessionElement) {
+            aboutSessionElement.scrollIntoView({ behavior: 'smooth' });
+            setIsActive(true);
+        }
+    };
+    const scrollToServiceSession = () => {
+        const serviceSessionElement = document.querySelector('.service');
+        if (serviceSessionElement) {
+            serviceSessionElement.scrollIntoView({ behavior: 'smooth' });
+            setIsActive(true);
+        }
+    };
 
+    const { scrollYProgress } = useScroll();
     return (
+
         <div className='header-container'>
+
             <nav className={`header-navbar ${isScrolled ? 'scrolled' : ''}`}>
                 <div className='grid-nav'>
                     <ul className='ul-navbar' style={{ display: 'flex', justifyContent: 'center' }}>
-                        <span >
-                            <img src={logo} width={55} height={55} alt="loogo" />
+                        <span>
+                            <Link to={'/'}>
+                                <img src={logo} width={55} height={55} alt="loogo" />
+                            </Link>
                         </span>
                         <li className='li-navbar' style={{ fontSize: '32px' }}>
                             <NavLink onClick={scrollToHomeSession} style={{
@@ -52,13 +72,13 @@ const Header = () => {
 
                     <ul className='ul-navbar'>
                         <li className='li-navbar'>
-                            <NavLink to="#" style={({ isActive }) => (
+                            <NavLink onClick={scrollToAboutSession} style={({ isActive }) => (
                                 { color: isActive ? '$secondary-color' : '$middlecolor' })}>
                                 About
                             </NavLink>
                         </li>
                         <li className='li-navbar'>
-                            <NavLink to="#" style={({ isActive }) => (
+                            <NavLink onClick={scrollToServiceSession} style={({ isActive }) => (
                                 { color: isActive ? '$secondary-color' : '$middlecolor' })}>
                                 Service
                             </NavLink>
@@ -70,7 +90,7 @@ const Header = () => {
                             </NavLink>
                         </li>
                         <li className='li-navbar'>
-                            <NavLink to="#" style={({ isActive }) => (
+                            <NavLink to="/blog" style={({ isActive }) => (
                                 { color: isActive ? '$secondary-color' : '$middlecolor' })}>
                                 Blog
                             </NavLink>
@@ -83,8 +103,10 @@ const Header = () => {
                         </li>
                     </ul>
                 </div>
+
             </nav>
-        </div>
+            <motion.div style={{ scaleX: scrollYProgress }} className='progress-bar' />
+        </div >
     )
 }
 

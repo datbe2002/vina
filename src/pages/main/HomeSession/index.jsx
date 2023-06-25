@@ -4,11 +4,13 @@ import ButtonCus from './ButtonCus'
 import BorderInfo from './BorderInfo'
 
 const HomeSession = () => {
+
     return (
         <div className='home-session'>
             <MainPictureCore />
             <ButtonCus />
             <BorderInfo />
+            <div className='introduce'></div>
         </div>
     )
 }
