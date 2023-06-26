@@ -1,7 +1,6 @@
 import React from 'react'
-import ErrorPage from '../error'
 import { useSelector } from 'react-redux'
-
+import './editPage.scss'
 const EditPage = () => {
 
 
@@ -14,7 +13,9 @@ const EditPage = () => {
     }
 
     return (
-        <div>EditPage</div>
+        <div className='edit-page-container'>
+            edit
+        </div>
     )
 }
 

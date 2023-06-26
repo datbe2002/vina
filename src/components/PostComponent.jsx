@@ -7,7 +7,7 @@ const PostComponent = () => {
 
     const blogs = useSelector((state) => state.blog?.blogCollection)
 
-
+    const url = "http://localhost:3000/"
 
 
     return (
@@ -16,7 +16,7 @@ const PostComponent = () => {
                 <div key={blog._id}>
                     <Link to={`/blog/${blog._id}`} className='post'>
 
-                        <img src="https://icdn.dantri.com.vn/zoom/516_344/2023/03/03/wagner-crop-1677838337926.jpeg" alt="hinh" />
+                        <img src={"http://localhost:3000/" + blog.cover} alt="hinh" />
                         <div className='post-content'>
                             <h2 className='post-title'>{blog.title}</h2>
                             <p className='info'>

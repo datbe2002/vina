@@ -47,19 +47,18 @@
         align-items: center;
         justify-content: right;
 
-        .edit-btn {
+        .edit-btn,
+        .add-btn {
             cursor: pointer;
+            border-radius: 10px;
             background-color: #333;
-            display: flex;
-            align-items: center;
-            justify-content: right;
-            color: #fff;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-bottom: 20px;
-            width: 2rem;
-            padding: 10px 10px;
+            padding: .5rem .7rem;
+            gap: 5px;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
         }
+
+
     }
 
     .content {

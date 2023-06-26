@@ -9,6 +9,7 @@ import MainPage from "../pages/main";
 import Blog from "../pages/blog";
 import BlogDetail from "../pages/blogdetail";
 import EditPage from "../pages/edit";
+import AddBlog from "../pages/addblog";
 
 
 export const router = createBrowserRouter([
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
             {
                 path: "/blog/:id",
                 element: <BlogDetail />,
+            },
+            {
+                path: "/add",
+                element: <AddBlog />,
             },
             {
                 path: "/edit/:id",
