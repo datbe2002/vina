@@ -1,0 +1,104 @@
+.contact-page {
+  width: 99vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contact-image {
+  margin-top: 150px;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 30px;
+}
+
+
+.contact-container {
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding: 20px;
+  border: 1px solid #000000;
+  border-radius: 30px;
+  background-color: rgba(219, 222, 227, 0.5);
+  display: grid;
+  gap: 10px;
+  overflow: auto;
+}
+
+form {
+  width: 800px;
+  display: grid;
+  gap: 10px;
+  
+}
+
+.form-group {
+  grid-column: span 1;
+  .first-name {
+    width: 100%;
+  }
+}
+
+.name-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 100px;
+}
+
+.name-group .form-group {
+  grid-column: span 1;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  resize: none; 
+}
+
+.textarea {
+  height: 150px;
+  overflow-y: auto;
+}
+
+button {
+  height: 64px;
+  justify-items: center;
+  display: block;
+  width: 30%;
+  padding: 10px;
+  border: none;
+  border-radius: 50px;
+  background-color: #5790AB;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+button:hover {
+  background-color: #5790AB;
+}
