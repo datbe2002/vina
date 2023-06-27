@@ -14,7 +14,13 @@ const BlogSession = () => {
 
     if (blogs.length < 1) {
         return (
-            <div>Error</div>
+            <div className='blog-map-child'>
+                <div className='post'>
+                    <div className='empty-blog'>
+                        No blog to display....
+                    </div>
+                </div>
+            </div>
         )
     }
     return (
@@ -25,11 +31,11 @@ const BlogSession = () => {
                     <div key={blog._id}>
                         <Link to={`/blog/${blog._id}`} className='post'>
 
-                            <img src="https://icdn.dantri.com.vn/zoom/516_344/2023/06/23/tong-bi-thu-va-tong-thong-han-1-1687523521526.jpg" alt="ss" />
+                            <img src={"http://localhost:3000/" + blog.cover} alt="ss" />
                             <div className='post-content'>
 
 
-                                <h1 className='post-title'>{blog.title}</h1>
+                                <h2 className='post-title'>{blog.title}</h2>
                                 <p className='info'>
                                     <a className='author'>{blog.author}</a>
                                     <time>{formatISO9075(new Date(blog.createdAt))}</time>

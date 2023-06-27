@@ -35,15 +35,18 @@ const AddBlog = () => {
         console.log(data)
         ev.preventDefault();
         dispatch(createBlog(data))
+        setRedirect(true)
     }
 
 
     if (redirect) {
-        return <Navigate to={'/'} />
+        return <Navigate to={'/blog'} />
     }
 
     return (
+
         <form onSubmit={createNewPost} className='add-container'>
+
             <input type="title"
                 placeholder={'Title'}
                 value={title}
@@ -56,6 +59,7 @@ const AddBlog = () => {
                 required />
             <input type="file"
                 onChange={ev => setFiles(ev.target.files)}
+                accept="image/*"
                 required />
             <Editor value={content} onChange={setContent} />
             <button style={{ marginTop: '5px' }}>Create blog</button>

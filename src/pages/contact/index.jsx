@@ -2,14 +2,20 @@ import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
 import './contact.scss';
 import contactImage from '../../assets/pics/contactlogo.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { submitForm } from '../../redux/slice/blogSlice';
 
-const ContactPage = ({ onSubmit }) => {
+const ContactPage = () => {
+    const dispatch = useDispatch()
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const loading = useSelector(state => state.blog.loading)
+
 
     const handleFirstNameChange = (e) => {
         setFirstName(e.target.value);
@@ -33,18 +39,19 @@ const ContactPage = ({ onSubmit }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log("first" + loading)
+        setIsSubmitting(loading);
 
-        setIsSubmitting(true);
-
-        onSubmit({ firstName, lastName, email, subject, message });
+        dispatch(submitForm({ firstName, lastName, email, subject, message }));
 
         setFirstName('');
         setLastName('');
         setEmail('');
         setSubject('');
         setMessage('');
+        console.log("second" + loading)
+        setIsSubmitting(loading);
 
-        setIsSubmitting(false);
     };
 
 

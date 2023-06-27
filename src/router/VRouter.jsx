@@ -10,6 +10,7 @@ import Blog from "../pages/blog";
 import BlogDetail from "../pages/blogdetail";
 import EditPage from "../pages/edit";
 import AddBlog from "../pages/addblog";
+import AdminSection from "../pages/admin/AdminSection";
 
 
 export const router = createBrowserRouter([
@@ -36,17 +37,21 @@ export const router = createBrowserRouter([
             {
                 path: "/add",
                 element: <AddBlog />,
-            },
-            {
-                path: "/edit/:id",
-                element: <EditPage />,
-            },
+            }
         ]
     },
 
     {
         path: "/login",
         element: <Login />,
+    },
+    {
+        path: "/admin/control/Mxh8m6fIlKps3L5qDdi0",
+        element: <AdminSection />,
+    },
+    {
+        path: "/admin/control/Mxh8m6fIlKps3L5qDdi0/update/:id",
+        element: <EditPage />,
     },
 ]);
 

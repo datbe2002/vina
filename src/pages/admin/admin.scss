@@ -1,0 +1,38 @@
+@import '../../assets/scss/variable.scss';
+
+.admin-section {
+    height: 100vh;
+    width: 100vw;
+    font-family: $main-font;
+
+    .admin-select {
+        margin-bottom: .2rem;
+        transition: 0.5s;
+        cursor: pointer;
+        border-radius: 10px;
+        font-size: 1rem;
+        color: black;
+    }
+
+    .admin-select:hover {
+        background-color: rgb(93, 84, 84);
+
+    }
+
+    .active {
+        background-color: #5790AB;
+        transform: translate(10px, 0);
+        border-radius: 10px;
+        cursor: pointer;
+
+    }
+
+    .active:hover {
+        background-color: #5790AB;
+    }
+
+    .table-contan {
+        width: 80%;
+        margin: 0 auto;
+    }
+}

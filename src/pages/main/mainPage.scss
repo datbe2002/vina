@@ -366,6 +366,12 @@
                 text-decoration: none;
                 color: inherit;
 
+                .empty-blog {
+                    width: 100%;
+                    padding-top: 20px;
+                    text-align: center;
+                }
+
                 img {
                     width: 40%;
                     border-radius: 1rem;

@@ -57,7 +57,7 @@ const BlogDetail = () => {
             {showLoginPopup && <LoginPopup onClose={() => setShowLoginPopup(false)} />}
 
             <div className="image">
-                <img src={`https://icdn.dantri.com.vn/zoom/516_344/2023/03/03/wagner-crop-1677838337926.jpeg`} alt="" />
+                <img src={"http://localhost:3000/" + postInfo.cover} alt="" />
             </div>
             <h1>{postInfo.title}</h1>
             <div className="content" dangerouslySetInnerHTML={{ __html: postInfo.content }} />
