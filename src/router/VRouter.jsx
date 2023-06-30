@@ -34,13 +34,13 @@ export const router = createBrowserRouter([
                 path: "/blog/:id",
                 element: <BlogDetail />,
             },
-            {
-                path: "/add",
-                element: <AddBlog />,
-            }
         ]
     },
 
+    {
+        path: "/add",
+        element: <AddBlog />,
+    },
     {
         path: "/login",
         element: <Login />,

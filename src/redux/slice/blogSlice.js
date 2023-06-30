@@ -2,21 +2,25 @@
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { URL } from "../../../tkps";
+import { toast } from "react-toastify";
 
 
 const axiosCus = axios.create({
-    // baseURL: "https://vina-landing-page.onrender.com/api",
-    baseURL: "http://localhost:3000/api",
+    baseURL: "https://vina-landing-page.onrender.com/api",
+    // baseURL: "http://localhost:3000/api",
 });
 
 
 const initialState = {
     blogCollection: [],
+    blogCollectionDateOnly: [],
     contactCollection: [],
+    contactCollectionDateOnly: [],
     msg: "",
     loading: false,
     error: "",
-    USER: true
+    USER: false
 
 };
 
@@ -30,11 +34,20 @@ export const getBlog = createAsyncThunk("blog/getAll", async (params, thunkAPI) 
     }
 });
 
+export const getBlogDateOnly = createAsyncThunk("blog/getAllBlogWithDate", async (params, thunkAPI) => {
+    try {
+        const result = await axiosCus.get("/blog/date/blogDate");
+        return result.data;
+    } catch (error) {
+        throw new Error("exception");
+    }
+});
+
 export const createBlog = createAsyncThunk("blog/create", async (params, thunkAPI) => {
     try {
         const data = params
-        console.log(data)
         const result = await axiosCus.post("/blog", data);
+        thunkAPI.dispatch(getBlog())
         return result.data;
     } catch (error) {
         throw new Error("exception");
@@ -44,8 +57,35 @@ export const createBlog = createAsyncThunk("blog/create", async (params, thunkAP
 export const submitForm = createAsyncThunk("blog/submit-from", async (params, thunkAPI) => {
     try {
         const data = params
-        console.log(data)
         const result = await axiosCus.post("/contact/submitform", data);
+        toast.success("Send form successfully", {
+            position: "top-right",
+        })
+        return result.data;
+    } catch (error) {
+        toast.error("Error :(", {
+            position: "top-right",
+        })
+        throw new Error("exception");
+    }
+});
+
+export const updateBlog = createAsyncThunk("blog/update", async (params, thunkAPI) => {
+    try {
+        const { data, navigate } = params
+        const result = await axiosCus.put("/blog", data);
+        navigate('/admin/control/Mxh8m6fIlKps3L5qDdi0')
+        return result.data;
+    } catch (error) {
+        throw new Error("exception");
+    }
+});
+
+export const deleteBlog = createAsyncThunk("blog/delete-blog", async (params, thunkAPI) => {
+    try {
+        const { id } = params
+        const result = await axiosCus.post(`/blog/${id}`);
+        thunkAPI.dispatch(getBlogDateOnly())
         return result.data;
     } catch (error) {
         throw new Error("exception");
@@ -62,17 +102,27 @@ export const getAllContact = createAsyncThunk("blog/get-all", async (params, thu
     }
 });
 
-export const deleteBlog = createAsyncThunk("blog/delete", async (params, thunkAPI) => {
+export const getAllContactDateOnly = createAsyncThunk("blog/get-all-date-only", async (params, thunkAPI) => {
     try {
-        const { id } = params
-        console.log(id)
-        const result = await axiosCus.delete(`/blog/${id}`);
-        thunkAPI.dispatch(getBlog())
+
+        const result = await axiosCus.get("/contact/date-only");
         return result.data;
     } catch (error) {
         throw new Error("exception");
     }
 });
+
+export const deleteContact = createAsyncThunk("blog/delete-contact", async (params, thunkAPI) => {
+    try {
+        const { id } = params
+        const result = await axiosCus.delete(`/contact/${id}`);
+        thunkAPI.dispatch(getAllContactDateOnly())
+        return result.data;
+    } catch (error) {
+        throw new Error("exception");
+    }
+});
+
 
 export const blogSlice = createSlice({
     name: "blog",
@@ -95,6 +145,18 @@ export const blogSlice = createSlice({
                 state.loading = false;
                 state.blogCollection = action.payload;
             })
+            .addCase(getBlogDateOnly.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(getBlogDateOnly.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error;
+            })
+            .addCase(getBlogDateOnly.fulfilled, (state, action) => {
+                state.loading = false;
+                state.blogCollectionDateOnly = action.payload;
+            })
+
             .addCase(createBlog.pending, (state) => {
                 state.loading = true;
             })
@@ -106,6 +168,7 @@ export const blogSlice = createSlice({
                 state.loading = false;
                 state.msg = action.payload;
             })
+
             .addCase(submitForm.pending, (state) => {
                 state.loading = true;
             })
@@ -117,6 +180,7 @@ export const blogSlice = createSlice({
                 state.loading = false;
                 state.msg = action.payload;
             })
+
             .addCase(getAllContact.pending, (state) => {
                 state.loading = true;
             })
@@ -129,6 +193,19 @@ export const blogSlice = createSlice({
                 state.msg = action.payload;
                 state.contactCollection = action.payload;
             })
+            .addCase(getAllContactDateOnly.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(getAllContactDateOnly.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error;
+            })
+            .addCase(getAllContactDateOnly.fulfilled, (state, action) => {
+                state.loading = false;
+                state.msg = action.payload;
+                state.contactCollectionDateOnly = action.payload;
+            })
+
             .addCase(deleteBlog.pending, (state) => {
                 state.loading = true;
             })
@@ -137,6 +214,17 @@ export const blogSlice = createSlice({
                 state.error = action.error;
             })
             .addCase(deleteBlog.fulfilled, (state, action) => {
+                state.loading = false;
+                state.msg = action.payload;
+            })
+            .addCase(deleteContact.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(deleteContact.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error;
+            })
+            .addCase(deleteContact.fulfilled, (state, action) => {
                 state.loading = false;
                 state.msg = action.payload;
             })

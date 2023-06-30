@@ -12,11 +12,12 @@
         border-radius: 10px;
         font-size: 1rem;
         color: black;
+
     }
 
     .admin-select:hover {
         background-color: rgb(93, 84, 84);
-
+        color: white;
     }
 
     .active {
@@ -24,7 +25,8 @@
         transform: translate(10px, 0);
         border-radius: 10px;
         cursor: pointer;
-
+        color: white;
+        font-weight: bold;
     }
 
     .active:hover {
@@ -34,5 +36,23 @@
     .table-contan {
         width: 80%;
         margin: 0 auto;
+
+        .add-cont {
+            display: flex;
+            height: 5rem;
+            justify-content: end;
+            align-items: center;
+
+            .add-icon {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 3rem;
+                height: 3rem;
+                background-color: #5790AB;
+                border-radius: 10px;
+            }
+        }
     }
 }

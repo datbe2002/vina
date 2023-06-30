@@ -3,7 +3,9 @@
 .footer-container {
     background: linear-gradient(90deg, rgba(156, 205, 219, 0.2) 0%, rgba(254, 159, 184, 0.2) 100%);
     flex-shrink: 0;
-    height: 519px !important;
+    height: fit-content !important;
+    width: 100vw;
+
     &__text {
         h4 {
             padding-top: 2rem;
@@ -19,9 +21,11 @@
         display: grid;
         justify-items: stretch;
         grid-template-columns: 1fr 1fr;
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 3rem;
 
         &--infos {
-            padding: 65px 0px 0 200px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -44,8 +48,11 @@
         }
 
         &--textlot {
-            padding-top: 65px;
             border-left: 1px solid black;
+            justify-content: right;
+            display: flex;
+            flex-direction: column;
+            padding-left: 5rem;
 
             .text-second {
                 text-align: center;
@@ -55,14 +62,11 @@
 
             .text-under {
                 word-wrap: break-word;
-                width: 40rem;
                 margin: 0 auto;
                 font-size: 24px;
                 font-weight: 300;
                 text-align: center;
                 line-height: 29px;
-                padding-top: 44px;
-
             }
         }
     }

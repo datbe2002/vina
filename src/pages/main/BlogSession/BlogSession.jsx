@@ -1,4 +1,4 @@
-import { formatISO9075 } from 'date-fns'
+import { format } from 'date-fns'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -31,14 +31,14 @@ const BlogSession = () => {
                     <div key={blog._id}>
                         <Link to={`/blog/${blog._id}`} className='post'>
 
-                            <img src={"http://localhost:3000/" + blog.cover} alt="ss" />
+                            {/* <img src={URL + blog.cover} alt="ss" /> */}
                             <div className='post-content'>
 
 
                                 <h2 className='post-title'>{blog.title}</h2>
                                 <p className='info'>
-                                    <a className='author'>{blog.author}</a>
-                                    <time>{formatISO9075(new Date(blog.createdAt))}</time>
+                                    <a className='author'>By <span style={{ textDecoration: 'underline' }}> {blog.author}</span></a>
+                                    <time>on {format(new Date(blog.createdAt), 'EEEE, dd MMMM yyyy')}</time>
                                 </p>
                                 <div className='summary'>
                                     <p>{blog.summary}</p></div>

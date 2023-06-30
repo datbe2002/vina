@@ -4,6 +4,7 @@ import { PASSWORD, USERNAME } from '../../../tkps';
 import { setUserAuth } from '../../redux/slice/blogSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -38,6 +39,9 @@ const LoginPage = () => {
             // Successful login logic
             console.log('Login successful!');
             dispatch(setUserAuth(true))
+            toast.success("Logged in successfully", {
+                position: "top-center",
+            })
             navigate('/admin/control/Mxh8m6fIlKps3L5qDdi0')
             // Perform additional actions like setting user session, navigating to another page, etc.
         } else {

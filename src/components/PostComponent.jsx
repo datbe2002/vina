@@ -1,13 +1,14 @@
-import { formatISO9075 } from 'date-fns'
+import { format } from 'date-fns'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { URL } from '../../tkps'
 
 const PostComponent = () => {
 
     const blogs = useSelector((state) => state.blog?.blogCollection)
 
-    const url = "http://localhost:3000/"
+
 
 
     return (
@@ -16,12 +17,12 @@ const PostComponent = () => {
                 <div key={blog._id}>
                     <Link to={`/blog/${blog._id}`} className='post'>
 
-                        <img src={"http://localhost:3000/" + blog.cover} alt="hinh" />
+                        <img src={URL + blog.cover} alt="hinh" />
                         <div className='post-content'>
                             <h2 className='post-title'>{blog.title}</h2>
                             <p className='info'>
                                 <a className='author'>Admin</a>
-                                <time>{formatISO9075(new Date(blog.createdAt))}</time>
+                                <time>{format((new Date(blog.createdAt)), 'dd/MM/yyyy HH:mm')}</time>
                             </p>
                             <div className='summary'>
                                 <p>

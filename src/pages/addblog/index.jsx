@@ -1,14 +1,31 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import Editor from '../../components/Editor'
 import './add.scss'
 import { createBlog } from '../../redux/slice/blogSlice'
 const AddBlog = () => {
     const auth = useSelector(state => state.blog?.USER)
+    const navigate = useNavigate()
     if (!auth) {
         return (
-            <div style={{ paddingTop: "200px", minHeight: "60vh", textAlign: "center", color: "red", fontSize: "2rem" }}>You are not authorized to access this site !</div>
+            <div style={{
+                paddingTop: "200px",
+                textAlign: "center",
+                width: '100vw'
+            }}>
+                <div style={{ minHeight: "10vh", color: "red", fontSize: "2rem" }}>You are not authorized to access this site !</div>
+                <button style={{
+                    backgroundColor: "#5790AB",
+                    border: 'none',
+                    padding: "1rem 2rem",
+                    color: "white",
+                    borderRadius: "10px",
+                    cursor: "pointer",
+                    fontWeight: "bold",
+                    fontFamily: "Mon"
+                }} onClick={() => navigate('/login')}>Go back</button>
+            </div>
         )
     }
 
@@ -22,13 +39,9 @@ const AddBlog = () => {
 
     async function createNewPost(ev) {
         const data = new FormData();
-
-
-
         data.set('title', title);
         data.set('summary', summary);
         data.set('content', content);
-
         if (files && files.length > 0) {
             data.append('file', files[0]);
         }

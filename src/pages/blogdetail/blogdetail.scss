@@ -5,14 +5,16 @@
     position: relative;
 
     .image {
-        max-height: 300px;
+        max-height: fit-content;
         display: flex;
         overflow: hidden;
 
         img {
             object-fit: cover;
             object-position: center center;
-            width: 100%;
+            margin: 0 auto;
+            width: 50%;
+            border-radius: 1rem;
         }
 
     }
@@ -23,8 +25,10 @@
     }
 
     h1 {
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 2rem;
         text-align: center;
-        margin: 10px 0 5px;
     }
 
     time {

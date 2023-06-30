@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import React, { useEffect, useState } from 'react'
+import { AnimatePresence, motion, useAnimation } from 'framer-motion'
 import pic1 from "../../../assets/pics/picture1.png"
 import pic2 from "../../../assets/pics/picture2.png"
 import pic3 from "../../../assets/pics/picture3.png"
+import { useInView } from 'react-intersection-observer'
 
 
 const ShowingCard = () => {
@@ -36,10 +37,38 @@ const ShowingCard = () => {
         setWhenChose(item)
     }
 
+    const [cardRef, inView] = useInView()
+
+    const animationAbout = useAnimation()
+
+    useEffect(() => {
+        if (inView) {
+            animationAbout.start({
+                y: 0,
+                opacity: 1,
+                transition: {
+                    duration: 1
+                }
+
+            })
+
+        }
+        if (!inView) {
+            animationAbout.start({
+                y: '20vh',
+                opacity: 0,
+                transition: {
+                    duration: 1
+                }
+            })
+        }
+    }, [inView])
+
     return (
         <>
             <motion.div
-
+                ref={cardRef}
+                animate={animationAbout}
                 className='show-card-container'>
                 {items.map(item => (
                     <motion.div

@@ -7,12 +7,15 @@ import SolutionSession from './SolutionSession'
 import BrandCooperate from './BrandCooperate'
 import Blog from './BlogSession/Blog'
 import { useDispatch } from 'react-redux'
-import { getBlog } from '../../redux/slice/blogSlice'
+import { getAllContact, getAllContactDateOnly, getBlog, getBlogDateOnly } from '../../redux/slice/blogSlice'
 const MainPage = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(getBlog())
+        dispatch(getBlogDateOnly())
+        dispatch(getAllContact())
+        dispatch(getAllContactDateOnly())
     }, [])
 
 

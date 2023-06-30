@@ -1,12 +1,40 @@
 import { Carousel } from 'antd'
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useEffect } from 'react'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+
 const FirstCarousel = () => {
 
 
+    const [cardRef, inView] = useInView()
+
+    const animationAbout = useAnimation()
+
+    useEffect(() => {
+        if (inView) {
+            animationAbout.start({
+                y: 0,
+                opacity: 1,
+                transition: {
+                    duration: 1
+                }
+
+            })
+
+        }
+        if (!inView) {
+            animationAbout.start({
+                y: '20vh',
+                opacity: 0,
+                transition: {
+                    duration: 1
+                }
+            })
+        }
+    }, [inView])
 
     return (
-        <div className='carousel-container'>
+        <motion.div className='carousel-container' ref={cardRef} animate={animationAbout}>
             <Carousel autoplay style={{
                 fontFamily: 'Montserrat, sans-serif',
                 color: '#072D44'
@@ -47,7 +75,7 @@ const FirstCarousel = () => {
                     </span>
                 </motion.div>
             </Carousel>
-        </div>
+        </motion.div>
     )
 }
 

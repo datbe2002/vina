@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { getBlog } from '../../../redux/slice/blogSlice'
+import React from 'react'
 import BlogSession from './BlogSession'
 import ReadmoreButton from './ReadmoreButton'
 
