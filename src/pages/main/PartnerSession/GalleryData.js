@@ -31,7 +31,7 @@ export const GalleryData = [
     },
     {
         id:7,
-        titile:"cycle",
+        titile:"FreeStyle",
         image:"./images/tv_LyThanhCo.jpg"
     },
     {
