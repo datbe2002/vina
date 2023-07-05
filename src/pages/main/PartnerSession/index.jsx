@@ -10,20 +10,39 @@ const PartnerSession = () => {
 
   useEffect(() => {
     setData(GalleryData);
-    setCollection([... new Set(GalleryData.map((item) => item.titile))])
-  }, [])
+    setCollection([...new Set(GalleryData.map((item) => item.titile))]);
+  }, []);
 
   const gallery_filter = (itemData) => {
-    const filterData = GalleryData.filter((item) => item.titile == itemData);
+    const filterData = GalleryData.filter((item) => item.titile === itemData);
     setData(filterData);
-  }
+  };
+
+  const GalleryItem = ({ item }) => {
+    const [hovered, setHovered] = useState(false);
+
+    const handleMouseEnter = () => {
+      setHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+      setHovered(false);
+    };
+
+    return (
+      <div className="galleryItem" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <img src={item.image} alt={item.title} />
+        {hovered && <h2>{item.name}</h2>}
+      </div>
+    );
+  };
 
   return (
     <div>
       <div>
-        <div className='partner-session'>
-          <h3 className='partner-title'>PARTNER</h3>
-          <div className='partner-title-content'>
+        <div className="partner-session">
+          <h3 className="partner-title">PARTNER</h3>
+          <div className="partner-title-content">
             <div>
               GCC (Global Creator Club) is a marketing company holding thousands of KOLs in Korea.
             </div>
@@ -32,22 +51,22 @@ const PartnerSession = () => {
             </div>
           </div>
         </div>
-
       </div>
       <div className="App">
         <div className="galleryWrapper">
           <div className="filterItem">
-            
             <ul>
-              {
-                collection.map((item) => <li><button onClick={() => { gallery_filter(item) }}>{item}</button></li>)
-              }
+              {collection.map((item) => (
+                <li>
+                  <button onClick={() => gallery_filter(item)}>{item}</button>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="galleryContainer">
-            {
-              data.map((item) => <div key={item.id} className="galleryItem"><img src={item.image} /></div>)
-            }
+            {data.map((item) => (
+              <GalleryItem key={item.id} item={item} />
+            ))}
           </div>
         </div>
       </div>

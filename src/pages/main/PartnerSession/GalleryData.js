@@ -2,17 +2,23 @@ export const GalleryData = [
     {
         id:1,
         titile:"travel",
-        image:"./images/tv_khoailangthang.jpg"
+        image:"./images/tv_khoailangthang.jpg",
+        name: "khoai lang thang"
     },
     {
         id:2,
         titile:"travel",
-        image:"./images/tv_LyThanhCo.jpg"
+        image:"./images/tv_LyThanhCo.jpg",
+        name: "khoai lang thang"
+
+        
     },
     {
         id:3,
         titile:"travel",
-        image:"./images/tv_PhanTheAnh.jpg"
+        image:"./images/tv_PhanTheAnh.jpg",
+        name: "khoai lang thang"
+
     },
     {
         id:4,

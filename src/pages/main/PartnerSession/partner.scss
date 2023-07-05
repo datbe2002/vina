@@ -1,4 +1,4 @@
-@import '../../../assets//scss/variable.scss';
+@import '../../../assets/scss/variable.scss';
 
 .partner-session {
   margin-top: 20vw;
@@ -18,14 +18,11 @@
 
   .partner-title-content {
     text-align: center;
-
     line-height: 34px;
     font-size: 28px;
     font-weight: 300;
   }
 }
-
-
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -46,14 +43,14 @@ body {
   margin-top: 4rem;
 }
 
-.button-wrapper>button {
+.button-wrapper > button {
   height: 2rem;
   padding: 0 1rem;
   cursor: pointer;
   border: none;
 }
 
-.button-wrapper>button.active {
+.button-wrapper > button.active {
   background: black;
   color: white;
 }
@@ -65,37 +62,33 @@ body {
   margin-top: 2rem;
 }
 
-.image-container>.image-card {
+.image-container > .image-card {
   color: white;
   border-radius: 5px;
   position: relative;
   height: 15rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  h2 {
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    font-size: 1rem;
+    text-shadow: 2px 2px black;
+  }
 }
-
-.image-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.image-card h2 {
-  position: absolute;
-  bottom: 0;
-  left: 1rem;
-  font-size: 1rem;
-  text-shadow: 2px 2px black;
-}
-
-
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-
 .galleryItem img {
-  transition: transform 0.3s ease; 
+  transition: transform 0.3s ease;
   width: 100%;
   height: 200px;
   object-fit: cover;
@@ -112,7 +105,7 @@ code {
 }
 
 .galleryItem:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 .filterItem ul {
@@ -135,16 +128,38 @@ code {
   border: navajowhite;
   font-size: 17px;
   border-radius: 50px;
-}
 
-.filterItem ul button:hover {
-  background: #064469;
-  cursor: pointer;
+  &:hover {
+    background: #064469;
+    cursor: pointer;
+  }
 }
 
 .galleryItem img {
   height: 300px;
   border-radius: 15px;
 }
+.galleryItem {
 
 
+  h2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0.75rem;
+    font-size: 1rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px black;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  &:hover {
+    h2 {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+}
