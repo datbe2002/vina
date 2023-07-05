@@ -37,8 +37,9 @@ const PartnerSession = () => {
       <div className="App">
         <div className="galleryWrapper">
           <div className="filterItem">
+            
             <ul>
-                            {
+              {
                 collection.map((item) => <li><button onClick={() => { gallery_filter(item) }}>{item}</button></li>)
               }
             </ul>
