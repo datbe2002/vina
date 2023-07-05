@@ -8,6 +8,7 @@ import BrandCooperate from './BrandCooperate'
 import Blog from './BlogSession/Blog'
 import { useDispatch } from 'react-redux'
 import { getBlog } from '../../redux/slice/blogSlice'
+import PartnerSession from './PartnerSession'
 const MainPage = () => {
     const dispatch = useDispatch()
 
@@ -22,6 +23,8 @@ const MainPage = () => {
             <AboutSession />
             <ServiceSession />
             <SolutionSession />
+            <PartnerSession />
+
             <BrandCooperate />
             <Blog />
             <div style={{ height: "10rem" }}></div>
