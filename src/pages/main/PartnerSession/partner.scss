@@ -95,6 +95,8 @@ code {
 }
 
 .galleryContainer {
+  opacity: 1;
+  transition: opacity 0.3s ease;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
@@ -140,7 +142,25 @@ code {
   border-radius: 15px;
 }
 .galleryItem {
+  transition: transform 0.3s ease;
 
+  img {
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
+
+    h2 {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
 
   h2 {
     position: absolute;
@@ -154,12 +174,5 @@ code {
     opacity: 0;
     transform: translateY(100%);
     transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
-  &:hover {
-    h2 {
-      opacity: 1;
-      transform: translateY(0%);
-    }
   }
 }

@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import '../PartnerSession/partner.scss';
 import { GalleryData } from './GalleryData';
 
@@ -30,10 +31,23 @@ const PartnerSession = () => {
     };
 
     return (
-      <div className="galleryItem" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <img src={item.image} alt={item.title} />
+      <motion.div
+        className="galleryItem"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        whileHover={{ scale: 1.1 }}
+        transition={{ duration: 0.3 }}
+      >
+        <motion.img
+          src={item.image}
+          alt={item.title}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        />
         {hovered && <h2>{item.name}</h2>}
-      </div>
+      </motion.div>
     );
   };
 
@@ -57,16 +71,18 @@ const PartnerSession = () => {
           <div className="filterItem">
             <ul>
               {collection.map((item) => (
-                <li>
+                <li key={item}>
                   <button onClick={() => gallery_filter(item)}>{item}</button>
                 </li>
               ))}
             </ul>
           </div>
           <div className="galleryContainer">
-            {data.map((item) => (
-              <GalleryItem key={item.id} item={item} />
-            ))}
+            <AnimatePresence>
+              {data.map((item) => (
+                <GalleryItem key={item.id} item={item} />
+              ))}
+            </AnimatePresence>
           </div>
         </div>
       </div>
