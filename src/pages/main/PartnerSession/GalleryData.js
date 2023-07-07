@@ -3,13 +3,13 @@ export const GalleryData = [
         id:1,
         titile:"travel",
         image:"./images/tv_khoailangthang.jpg",
-        name: "khoai lang thang"
+        name: "Khoai Lang Thang"
     },
     {
         id:2,
         titile:"travel",
         image:"./images/tv_LyThanhCo.jpg",
-        name: "khoai lang thang"
+        name: "Ly Thanh Co"
 
         
     },
@@ -17,33 +17,43 @@ export const GalleryData = [
         id:3,
         titile:"travel",
         image:"./images/tv_PhanTheAnh.jpg",
-        name: "khoai lang thang"
+        name: "Phan The Anh"
 
     },
     {
         id:4,
         titile:"travel",
-        image:"./images/tv_Travip.jpg"
+        image:"./images/tv_Travip.jpg",
+        name: "Travip"
+
     },
     {
         id:5,
         titile:"travel",
-        image:"./images/tv_truongthanhduy.jpg"
+        image:"./images/tv_truongthanhduy.jpg",
+        name: "Truong Thanh Duy"
+
     },
     {
         id:6,
         titile:"travel",
-        image:"./images/tv_hukha.jpg"
+        image:"./images/tv_hukha.jpg",
+        name: "HuKhaaa"
+
     },
     {
         id:7,
         titile:"travel",
-        image:"./images/tv_buuvivu.jpg"
+        image:"./images/tv_buuvivu.jpg",
+        name: "Buu Vi Vu"
+
     },
     {
         id:8,
         titile:"travel",
-        image:"./images/tv_kephatdat.jpg"
+        image:"./images/tv_kephatdat.jpg",
+        name: "Ke Phat Dat"
+
     },
 //Beauty
 

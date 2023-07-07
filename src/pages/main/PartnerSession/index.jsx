@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import '../PartnerSession/partner.scss';
 import { GalleryData } from './GalleryData';
 
@@ -35,15 +35,17 @@ const PartnerSession = () => {
         className="galleryItem"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        whileHover={{ scale: 1.1 }}
+        layout
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
       >
         <motion.img
           src={item.image}
           alt={item.title}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          layout
+          whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.3 }}
         />
         {hovered && <h2>{item.name}</h2>}
@@ -77,13 +79,20 @@ const PartnerSession = () => {
               ))}
             </ul>
           </div>
-          <div className="galleryContainer">
-            <AnimatePresence>
+          <AnimatePresence>
+            <motion.div
+              key="gallery"
+              className="galleryContainer"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
               {data.map((item) => (
                 <GalleryItem key={item.id} item={item} />
               ))}
-            </AnimatePresence>
-          </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </div>
