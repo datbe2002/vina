@@ -24,9 +24,7 @@
   }
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-}
+
 
 .app {
   text-align: center;
@@ -34,7 +32,6 @@ body {
   margin: 0 auto;
 }
 
-/* Button Filters */
 .button-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -83,9 +80,7 @@ body {
   }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
+
 
 .galleryItem img {
   transition: transform 0.3s ease;
@@ -127,7 +122,6 @@ code {
   color: #fff;
   padding: 8px 46px;
   text-transform: uppercase;
-  border: navajowhite;
   font-size: 17px;
   border-radius: 50px;
 
@@ -176,3 +170,4 @@ code {
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 }
+

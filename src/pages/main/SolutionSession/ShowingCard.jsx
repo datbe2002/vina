@@ -15,18 +15,21 @@ const ShowingCard = () => {
         {
             id: 1,
             title: 'Marketing',
-            pic: pic1
+            pic: pic1,
+            detail: 'Drawing from our extensive experience in collaborating with diverse brands across various industries, we are well-equipped to offer tailored marketing solutions for each of our clients unique projects.'
         },
         {
             id: 2,
             title: 'Production',
-            pic: pic2
+            pic: pic2,
+            detail: 'Our production business is spearheaded by a team of proficient photographers, each with a wealth of experience in managing image production for a myriad of large and small-scale projects, events, and campaigns. Our founder also has a solid track record in the field, further bolstering our capabilities.'
 
         },
         {
             id: 3,
             title: 'Event organization',
-            pic: pic3
+            pic: pic3,
+            detail: 'Our team comprises seasoned professionals with extensive experience in the event industry, having delivered successful corporate events and large-scale external events in the past.'
 
         },
     ]
@@ -55,7 +58,7 @@ const ShowingCard = () => {
                 {selectedId && (
                     <motion.div className='modal-show-card' layoutId={selectedId}>
                         <motion.div className='modal-image'>
-                            <img src={whenChose.pic} alt="" />
+                            <div>{whenChose.detail}</div>
                         </motion.div>
                         <motion.button className='modal-close-button' onClick={() => setSelectedId(null)}>
                             &times;
