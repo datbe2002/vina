@@ -35,55 +35,78 @@ const ShowingCard = () => {
         },
     ]
 
-    const set = (item) => {
-        setSelectedId(item.id)
-        setWhenChose(item)
-    }
+    // const set = (item) => {
+    //     setSelectedId(item.id)
+    //     setWhenChose(item)
+    // }
 
-    const [cardRef, inView] = useInView()
+    // const [cardRef, inView] = useInView()
 
-    const animationAbout = useAnimation()
+    // const animationAbout = useAnimation()
 
-    useEffect(() => {
-        if (inView) {
-            animationAbout.start({
-                y: 0,
-                opacity: 1,
-                transition: {
-                    duration: 1
-                }
+    // useEffect(() => {
+    //     if (inView) {
+    //         animationAbout.start({
+    //             y: 0,
+    //             opacity: 1,
+    //             transition: {
+    //                 duration: 1
+    //             }
 
-            })
+    //         })
 
-        }
-        if (!inView) {
-            animationAbout.start({
-                y: '20vh',
-                opacity: 0,
-                transition: {
-                    duration: 1
-                }
-            })
-        }
-    }, [inView])
+    //     }
+    //     if (!inView) {
+    //         animationAbout.start({
+    //             y: '20vh',
+    //             opacity: 0,
+    //             transition: {
+    //                 duration: 1
+    //             }
+    //         })
+    //     }
+    // }, [inView])
+
+    const [flippedItems, setFlippedItems] = useState([]);
+
+    const handleItemClick = (itemId) => {
+        setFlippedItems((prevFlippedItems) => {
+            if (prevFlippedItems.includes(itemId)) {
+                return prevFlippedItems.filter((id) => id !== itemId);
+            }
+            return [...prevFlippedItems, itemId];
+        });
+    };
 
     return (
         <>
-            <motion.div
-                ref={cardRef}
-                animate={animationAbout}
-                className='show-card-container'>
-                {items.map(item => (
+            <motion.div key="ids" className="show-card-container" style={{ transformStyle: '1000px' }}>
+                {items.map((item) => (
                     <motion.div
-                        className='show-card-element'
-                        layoutId={item.id} onClick={() => set(item)}>
-                        <motion.div className='title'>
-                            {item.title}
+                        key={item.id}
+                        className={`show-card-element ${flippedItems.includes(item.id) ? 'flipped' : ''}`}
+                        onClick={() => handleItemClick(item.id)}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        animate={{
+                            rotateY: flippedItems.includes(item.id) ? 180 : 0,
+                            transformStyle: 'preserve-3d',
+                            transition: { duration: 0.6 },
+                        }}
+                    >
+                        <motion.div className="flip-card-inner" style={{ transformStyle: '1000px' }} >
+                            <motion.div className="flip-card-front">
+                                {item.title}
+                            </motion.div>
+                            <motion.div className="flip-card-back">
+                                {/* Add content for the back of the card */}
+                                hello
+                            </motion.div>
                         </motion.div>
                     </motion.div>
                 ))}
             </motion.div>
-            <AnimatePresence>
+            {/* <AnimatePresence>
                 {selectedId && (
                     <motion.div className='modal-show-card' layoutId={selectedId}>
                         <motion.div className='modal-image'>
@@ -94,7 +117,7 @@ const ShowingCard = () => {
                         </motion.button>
                     </motion.div>
                 )}
-            </AnimatePresence>
+            </AnimatePresence> */}
         </>
 
     )

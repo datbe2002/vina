@@ -8,6 +8,7 @@ const SolutionSession = () => {
                 SOLUTION
             </div>
             <ShowingCard />
+
         </div>
     )
 }

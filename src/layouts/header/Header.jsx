@@ -44,6 +44,13 @@ const Header = () => {
             setIsActive(true);
         }
     };
+    const scrollToPartnerSession = () => {
+        const partnerSessionElement = document.querySelector('.partner');
+        if (partnerSessionElement) {
+            partnerSessionElement.scrollIntoView({ behavior: 'smooth' });
+            setIsActive(true);
+        }
+    };
 
     const { scrollYProgress } = useScroll();
     return (
@@ -84,7 +91,7 @@ const Header = () => {
                             </NavLink>
                         </li>
                         <li className='li-navbar'>
-                            <NavLink to="#" style={({ isActive }) => (
+                            <NavLink onClick={scrollToPartnerSession} to="#" style={({ isActive }) => (
                                 { color: isActive ? '$secondary-color' : '$middlecolor' })}>
                                 Partner
                             </NavLink>

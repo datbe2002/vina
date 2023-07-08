@@ -28,7 +28,6 @@ const MainPage = () => {
             <ServiceSession />
             <SolutionSession />
             <PartnerSession />
-
             <BrandCooperate />
             <Blog />
             <div style={{ height: "10rem" }}></div>

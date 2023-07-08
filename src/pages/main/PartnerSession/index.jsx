@@ -57,6 +57,8 @@ const PartnerSession = () => {
     <div>
       <div>
         <div className="partner-session">
+          <div className='partner'></div>
+
           <h3 className="partner-title">PARTNER</h3>
           <div className="partner-title-content">
             <div>

@@ -259,6 +259,10 @@
                 align-items: center;
                 justify-content: center;
 
+                .flip-card-inner {
+                    backface-visibility: hidden;
+                }
+
                 .title {
                     text-align: center;
                     font-size: 2rem;
