@@ -7,6 +7,8 @@ import SolutionSession from './SolutionSession'
 import BrandCooperate from './BrandCooperate'
 import Blog from './BlogSession/Blog'
 import { useDispatch } from 'react-redux'
+import PartnerSession from './PartnerSession'
+
 import { getAllContact, getAllContactDateOnly, getBlog, getBlogDateOnly } from '../../redux/slice/blogSlice'
 const MainPage = () => {
     const dispatch = useDispatch()
@@ -25,6 +27,8 @@ const MainPage = () => {
             <AboutSession />
             <ServiceSession />
             <SolutionSession />
+            <PartnerSession />
+
             <BrandCooperate />
             <Blog />
             <div style={{ height: "10rem" }}></div>
