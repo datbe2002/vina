@@ -8,10 +8,6 @@ import './FlipCard.scss';
 
 const ShowingCard = () => {
 
-    const [selectedId, setSelectedId] = useState(null)
-    const [whenChose, setWhenChose] = useState(null)
-
-
     const items = [
         {
             id: 1,
@@ -40,32 +36,32 @@ const ShowingCard = () => {
     //     setWhenChose(item)
     // }
 
-    // const [cardRef, inView] = useInView()
+    const [cardRef, inView] = useInView()
 
-    // const animationAbout = useAnimation()
+    const animationAbout = useAnimation()
 
-    // useEffect(() => {
-    //     if (inView) {
-    //         animationAbout.start({
-    //             y: 0,
-    //             opacity: 1,
-    //             transition: {
-    //                 duration: 1
-    //             }
+    useEffect(() => {
+        if (inView) {
+            animationAbout.start({
+                y: 0,
+                opacity: 1,
+                transition: {
+                    duration: 1
+                }
 
-    //         })
+            })
 
-    //     }
-    //     if (!inView) {
-    //         animationAbout.start({
-    //             y: '20vh',
-    //             opacity: 0,
-    //             transition: {
-    //                 duration: 1
-    //             }
-    //         })
-    //     }
-    // }, [inView])
+        }
+        if (!inView) {
+            animationAbout.start({
+                y: '20vh',
+                opacity: 0,
+                transition: {
+                    duration: 1
+                }
+            })
+        }
+    }, [inView])
 
     const [flippedItems, setFlippedItems] = useState([]);
 
@@ -80,7 +76,7 @@ const ShowingCard = () => {
 
     return (
         <>
-            <div className="show-card-container">
+            <motion.div className="show-card-container" ref={cardRef} animate={animationAbout}>
                 {items.map((item) => (
                     <div
                         key={item.id}
@@ -109,7 +105,7 @@ const ShowingCard = () => {
                         </div>
                     </div>
                 ))}
-            </div>
+            </motion.div>
             {/* <motion.div key="ids" className="show-card-container" style={{ transformStyle: '1000px' }}>
                 {items.map((item) => (
                     <motion.div

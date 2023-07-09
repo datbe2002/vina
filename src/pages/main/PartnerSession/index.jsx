@@ -1,7 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import '../PartnerSession/partner.scss';
 import { GalleryData } from './GalleryData';
+import { useInView } from 'react-intersection-observer';
 
 export const MovieContext = createContext();
 
@@ -59,26 +60,57 @@ const PartnerSession = () => {
     const handleMouseLeave = () => {
       setHovered(false);
     };
+    const [cardRef, inView] = useInView()
+
+    const animationAbout = useAnimation()
+
+    useEffect(() => {
+      if (inView) {
+        animationAbout.start({
+          y: 0,
+          opacity: 1,
+          transition: {
+            duration: 1
+          }
+
+        })
+
+      }
+      if (!inView) {
+        animationAbout.start({
+          y: '20vh',
+          opacity: 0,
+          transition: {
+            duration: 1
+          }
+        })
+      }
+    }, [inView])
 
     return (
-      <motion.div
-        className="galleryItem"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        layout
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        <motion.img
-          src={item.image}
-          alt={item.title}
+      <motion.div ref={cardRef} animate={animationAbout}>
+
+        <motion.div
+          className="galleryItem"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+
+
           layout
-          whileHover={{ scale: 1.1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-        />
-        {hovered && <h2>{item.name}</h2>}
+        >
+          <motion.img
+            src={item.image}
+            alt={item.title}
+            layout
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.3 }}
+          />
+          {hovered && <h2>{item.name}</h2>}
+        </motion.div>
       </motion.div>
     );
   };
