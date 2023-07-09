@@ -321,6 +321,7 @@ export const GalleryData = [
   },
   {
     id: 52,
+    
     titile: "FreeStyle   ",
     image: "./images/fe_thuyquynh.jpg",
     name: "Thuy Quynh",

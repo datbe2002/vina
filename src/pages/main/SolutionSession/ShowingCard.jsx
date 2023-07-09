@@ -4,7 +4,7 @@ import pic1 from "../../../assets/pics/picture1.png"
 import pic2 from "../../../assets/pics/picture2.png"
 import pic3 from "../../../assets/pics/picture3.png"
 import { useInView } from 'react-intersection-observer'
-
+import './FlipCard.scss';
 
 const ShowingCard = () => {
 
@@ -80,7 +80,37 @@ const ShowingCard = () => {
 
     return (
         <>
-            <motion.div key="ids" className="show-card-container" style={{ transformStyle: '1000px' }}>
+            <div className="show-card-container">
+                {items.map((item) => (
+                    <div
+                        key={item.id}
+                        className={`show-card-element ${flippedItems.includes(item.id) ? 'flipped' : ''}`}
+                        onClick={() => handleItemClick(item.id)}
+                    >
+                        <div className="flip-card">
+                            <motion.div className="flip-card-inner">
+                                <motion.div
+                                    className="flip-card-front"
+                                    initial={{ rotateY: 0 }}
+                                    animate={{ rotateY: flippedItems.includes(item.id) ? 180 : 0 }}
+                                    transition={{ duration: 0.6 }}
+                                >
+                                    <h2>{item.title}</h2>
+                                </motion.div>
+                                <motion.div
+                                    className="flip-card-back"
+                                    initial={{ rotateY: 180 }}
+                                    animate={{ rotateY: flippedItems.includes(item.id) ? 0 : 180 }}
+                                    transition={{ duration: 0.6 }}
+                                >
+                                    <p>{item.detail}</p>
+                                </motion.div>
+                            </motion.div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            {/* <motion.div key="ids" className="show-card-container" style={{ transformStyle: '1000px' }}>
                 {items.map((item) => (
                     <motion.div
                         key={item.id}
@@ -99,13 +129,12 @@ const ShowingCard = () => {
                                 {item.title}
                             </motion.div>
                             <motion.div className="flip-card-back">
-                                {/* Add content for the back of the card */}
-                                hello
+                                {item.detail}
                             </motion.div>
                         </motion.div>
                     </motion.div>
                 ))}
-            </motion.div>
+            </motion.div> */}
             {/* <AnimatePresence>
                 {selectedId && (
                     <motion.div className='modal-show-card' layoutId={selectedId}>

@@ -5,6 +5,36 @@ import { GalleryData } from './GalleryData';
 
 export const MovieContext = createContext();
 
+const ScrollAnimationWrapper = ({ children }) => {
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        } else {
+          setIsInView(false);
+        }
+      });
+    });
+
+    const target = document.querySelector('#partner-session');
+
+    if (target) {
+      observer.observe(target);
+    }
+
+    return () => {
+      if (target) {
+        observer.unobserve(target);
+      }
+    };
+  }, []);
+
+  return <div id="partner-session">{children(isInView)}</div>;
+};
+
 const PartnerSession = () => {
   const [data, setData] = useState([]);
   const [collection, setCollection] = useState([]);
@@ -54,57 +84,63 @@ const PartnerSession = () => {
   };
 
   return (
-    <div>
-      <div>
-        <div className="partner-session">
-          <div className='partner'></div>
+    <ScrollAnimationWrapper>
+      {(isInView) => (
+        <div>
+          <div>
+            <div className="partner-session">
+              <div className="partner"></div>
 
-          <h3 className="partner-title">PARTNER</h3>
-          <div className="partner-title-content">
-            <div>
-              GCC (Global Creator Club) is a marketing company holding thousands of KOLs in Korea.
+              <h3 className="partner-title">PARTNER</h3>
+              <div className="partner-title-content">
+                <div>
+                  GCC (Global Creator Club) is a marketing company holding thousands of KOLs in Korea.
+                </div>
+                <div>
+                  MORE THAN 100 BIG KOLS and 200 KOCS IN VIETNAM always ready to cooperate with VINA.
+                </div>
+              </div>
             </div>
-            <div>
-              MORE THAN 100 BIG KOLS and 200 KOCS IN VIETNAM always ready to cooperate with VINA.
+          </div>
+          <div className="App">
+            <div className="galleryWrapper">
+              <div className="filterItem">
+                <ul>
+                  {collection.map((item) => (
+                    <li key={item}>
+                      <motion.button
+                        whileHover={{
+                          scale: 1.1,
+                        }}
+                        whileTap={{
+                          scale: 0.8
+                        }}
+                        onClick={() => gallery_filter(item)}>{item}</motion.button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <AnimatePresence>
+                {isInView && (
+                  <motion.div
+                    key="gallery"
+                    className="galleryContainer"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {data.map((item) => (
+                      <GalleryItem key={item.id} item={item} />
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </div>
-      </div>
-      <div className="App">
-        <div className="galleryWrapper">
-          <div className="filterItem">
-            <ul>
-              {collection.map((item) => (
-                <li key={item}>
-                  <motion.button
-                    whileHover={{
-                      scale: 1.1,
-                    }}
-                    whileTap={{
-                      scale: 0.8
-                    }}
-                    onClick={() => gallery_filter(item)}>{item}</motion.button>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <AnimatePresence>
-            <motion.div
-              key="gallery"
-              className="galleryContainer"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              {data.map((item) => (
-                <GalleryItem key={item.id} item={item} />
-              ))}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
-    </div>
+      )}
+    </ScrollAnimationWrapper>
   );
 };
 
