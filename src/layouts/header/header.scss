@@ -5,8 +5,10 @@
     top: 0;
     width: 100%;
     z-index: 999;
+    font-family: $main-font;
 
     .header-navbar {
+        
         background-color: transparent;
         transition: background-color 0.3s ease;
         display: grid;
@@ -14,6 +16,8 @@
         grid-template-columns: 1fr 1fr;
 
         .ul-navbar {
+            font-family: $main-font;
+
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -55,6 +59,8 @@
     }
 
     .progress-bar {
+        font-family: $main-font;
+
         position: fixed;
         top: 0;
         left: 0;

@@ -4,6 +4,7 @@
 .main-page-container {
     height: fit-content;
     width: 100%;
+    font-family: $main-font;
 
     .home-session {
         padding-top: 100px;
@@ -43,6 +44,8 @@
         }
 
         .box-info {
+            font-family: $main-font;
+
             width: 50rem;
             padding-top: 29px;
             margin: 48px auto 0 auto;
