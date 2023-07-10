@@ -1,11 +1,13 @@
 import React, { memo, useState } from 'react'
 import './login.scss'
-import { PASSWORD, USERNAME } from '../../../tkps';
 import { setUserAuth } from '../../redux/slice/blogSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { PASSWORD, USERNAME } from '../../../tkps';
 const LoginPage = () => {
+    console.log(PASSWORD)
+    console.log(USERNAME)
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');

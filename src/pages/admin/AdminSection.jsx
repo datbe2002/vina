@@ -87,7 +87,7 @@ const AdminSection = () => {
                     <div className={change === "Blogs" ? ('admin-select  active') : ('admin-select')} onClick={() => setChange("Blogs")}>
                         Blogs
                     </div>
-                    <div className={change === "Contacts" ? ('admin-select  active') : ('admin-select')} onClick={() => setChange("Contacts")}>
+                    <div key={'contact'} className={change === "Contacts" ? ('admin-select  active') : ('admin-select')} onClick={() => setChange("Contacts")}>
                         Contacts
                     </div>
                 </Sider>
