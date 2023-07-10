@@ -4,7 +4,7 @@ import PostComponent from '../../components/PostComponent'
 import ImgLogoBlog from '../../components/ImgLogoBlog'
 import { useDispatch } from 'react-redux'
 import { getBlog } from '../../redux/slice/blogSlice'
-import { UNSAFE_useScrollRestoration } from 'react-router-dom'
+import { UNSAFE_useScrollRestoration, useNavigate } from 'react-router-dom'
 
 const Blog = () => {
 
@@ -18,9 +18,11 @@ const Blog = () => {
         dispatch(getBlog())
     }, [])
 
+    const navigate = useNavigate()
 
     return (
         <div className='blog-page-container' {...scrollRestoration}>
+            <button onClick={() => navigate('/login')}>login</button>
             <ImgLogoBlog />
             <PostComponent />
         </div>
