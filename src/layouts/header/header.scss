@@ -69,4 +69,17 @@
         background: $secondary-color;
         transform-origin: 0%;
     }
+    @media (max-width: 768px) {
+        .header-navbar {
+          grid-template-columns: 1fr;
+          row-gap: 15px;
+          padding-top: 30px;
+          padding-bottom: 15px;
+    
+          .ul-navbar {
+            justify-content: center;
+            font-size: 18px;
+          }
+        }
+      }
 }
