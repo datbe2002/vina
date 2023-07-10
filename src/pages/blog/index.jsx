@@ -22,7 +22,7 @@ const Blog = () => {
 
     return (
         <div className='blog-page-container' {...scrollRestoration}>
-            <button onClick={() => navigate('/login')}>login</button>
+            {/* <button onClick={() => navigate('/login')}>login</button> */}
             <ImgLogoBlog />
             <PostComponent />
         </div>
