@@ -12,7 +12,7 @@ const HomeSession = () => {
         offset: ["end end", "end start"]
     })
 
-    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+    const opacity = useTransform(scrollYProgress, [0, 2], [2, 0])
     const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8])
 
 
