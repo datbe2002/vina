@@ -13,27 +13,27 @@ const ServiceCard = () => {
         {
             icon: global,
             text: 'Social Media Management',
-            content: 'Building and managing social media channels such as TikTok, YouTube, etc., for individuals or businesses.',
+            content: 'Building and managing social media channels such as TikTok, YouTube, etc., for individuals or businesses. ',
         },
         {
             icon: calendar,
-            text: 'Kpop Event Package',
-            content: 'Building and managing social media channels such as TikTok, YouTube, etc., for individuals or businesses.',
+            text: 'Kpop Event Packages',
+            content: 'Kpop Idol and Korean Celebs Booking Package for concerts and events.',
         },
         {
             icon: insta,
-            text: 'Social Media Management',
-            content: 'Building and managing social media channels such as TikTok, YouTube, etc., for individuals or businesses.',
+            text: 'Korean Press Packages',
+            content: 'Korean Press Packages for hotels and restaurants targeting Korean tourists.',
         },
         {
             icon: cart,
             text: 'Low-Cost Market Entry',
-            content: 'Building and managing social media channels such as TikTok, YouTube, etc., for individuals or businesses.',
+            content: 'Marketing package for Korean brands looking to enter the Vietnamese market with the lowest cost. E-commerce package for Korean brands looking to enter the Vietnamese market.',
         },
         {
             icon: camera,
             text: 'Influencer Experience',
-            content: 'Building and managing social media channels such as TikTok, YouTube, etc., for individuals or businesses.',
+            content: 'Top Kols and Korean bloggers package for experiencing and reviewing services.',
         },
     ]
 
