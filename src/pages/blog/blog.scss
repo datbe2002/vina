@@ -25,6 +25,7 @@
     }
 
     .post {
+        grid-row: inherit;
         width: 80%;
         margin: 1rem auto;
         display: flex;
@@ -35,7 +36,10 @@
         color: inherit;
 
         img {
-            width: 40%;
+  object-fit: cover;
+  margin-right: 20px;
+            width: 300px;
+            height: 300px;
             border-radius: 1rem;
         }
 
