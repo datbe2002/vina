@@ -56,7 +56,7 @@ const AddBlog = () => {
 
 
     if (redirect) {
-        return <Navigate to={'/admin/control/Mxh8m6fIlKps3L5qDdi0'} />
+        return <Navigate to={'/blog'} />
     }
 
     return (
