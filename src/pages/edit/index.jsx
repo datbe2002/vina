@@ -16,7 +16,7 @@ const EditPage = () => {
     const [summary, setSummary] = useState('');
     const [content, setContent] = useState('');
     const [files, setFiles] = useState('');
-
+    const [cover, setCover] = useState('');
 
     const updatePost = (e) => {
         e.preventDefault()
@@ -40,6 +40,7 @@ const EditPage = () => {
                     setTitle(p.title)
                     setSummary(p.summary)
                     setContent(p.content)
+                    setCover(p.cover)
                 });
             });
     }, []);
@@ -62,7 +63,7 @@ const EditPage = () => {
                 width: '100vw',
                 textAlign: "center",
             }}>
-                <img src={logo} alt="" />
+                <img src={URL + cover} alt="" />
             </div>
             <form
                 onSubmit={updatePost}
