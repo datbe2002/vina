@@ -6,10 +6,7 @@
 // }
 
 :root {
-  font-family: $main-font;
-  background: linear-gradient(90deg, #DBDEE3 10%, #C6E4FF 90%);
-  background-size: cover;
-  background: no-repeat;
+  // font-family: $main-font;
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;
@@ -24,5 +21,6 @@
 body {
   margin: 0;
   display: flex;
+  // min-width: 99vw;
   min-height: 100vh;
 }

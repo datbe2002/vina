@@ -6,6 +6,8 @@ import '../../assets/scss/variable.scss'
 import logo from '../../assets/pics/logo.png'
 
 const Header = () => {
+
+
     const [isScrolled, setIsScrolled] = useState(false);
     const [isActive, setIsActive] = useState(false);
     useEffect(() => {
@@ -109,6 +111,7 @@ const Header = () => {
                             </NavLink>
                         </li>
                     </ul>
+                    
                 </div>
 
             </nav>

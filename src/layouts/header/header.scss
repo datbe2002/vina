@@ -5,21 +5,25 @@
     top: 0;
     width: 100%;
     z-index: 999;
-
+    font-family: $main-font;
+    
     .header-navbar {
+        
         background-color: transparent;
         transition: background-color 0.3s ease;
         display: grid;
         justify-items: stretch;
         grid-template-columns: 1fr 1fr;
-
+        
         .ul-navbar {
+            font-family: $main-font;
+
             list-style-type: none;
             margin: 0;
             padding: 0;
             overflow: hidden;
             display: flex;
-            padding-top: 45px;
+            padding-top: 20px;
             padding-bottom: 30px;
             font-weight: 400;
             font-size: 24px;
@@ -50,11 +54,15 @@
 
     .header-navbar.scrolled {
         background-color: #ffff;
-        opacity: 0.8;
+        opacity: 1;
+        padding-top: 10px;        
+        height: 80px;
 
     }
 
     .progress-bar {
+        font-family: $main-font;
+
         position: fixed;
         top: 0;
         left: 0;
@@ -63,4 +71,17 @@
         background: $secondary-color;
         transform-origin: 0%;
     }
+    @media (max-width: 768px) {
+        .header-navbar {
+          grid-template-columns: 1fr;
+          row-gap: 15px;
+          padding-top: 30px;
+          padding-bottom: 15px;
+    
+          .ul-navbar {
+            justify-content: center;
+            font-size: 18px;
+          }
+        }
+      }
 }

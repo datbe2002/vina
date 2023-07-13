@@ -31,10 +31,6 @@ const ShowingCard = () => {
         },
     ]
 
-    // const set = (item) => {
-    //     setSelectedId(item.id)
-    //     setWhenChose(item)
-    // }
 
     const [cardRef, inView] = useInView()
 
@@ -106,43 +102,6 @@ const ShowingCard = () => {
                     </div>
                 ))}
             </motion.div>
-            {/* <motion.div key="ids" className="show-card-container" style={{ transformStyle: '1000px' }}>
-                {items.map((item) => (
-                    <motion.div
-                        key={item.id}
-                        className={`show-card-element ${flippedItems.includes(item.id) ? 'flipped' : ''}`}
-                        onClick={() => handleItemClick(item.id)}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        animate={{
-                            rotateY: flippedItems.includes(item.id) ? 180 : 0,
-                            transformStyle: 'preserve-3d',
-                            transition: { duration: 0.6 },
-                        }}
-                    >
-                        <motion.div className="flip-card-inner" style={{ transformStyle: '1000px' }} >
-                            <motion.div className="flip-card-front">
-                                {item.title}
-                            </motion.div>
-                            <motion.div className="flip-card-back">
-                                {item.detail}
-                            </motion.div>
-                        </motion.div>
-                    </motion.div>
-                ))}
-            </motion.div> */}
-            {/* <AnimatePresence>
-                {selectedId && (
-                    <motion.div className='modal-show-card' layoutId={selectedId}>
-                        <motion.div className='modal-image'>
-                            <div>{whenChose.detail}</div>
-                        </motion.div>
-                        <motion.button className='modal-close-button' onClick={() => setSelectedId(null)}>
-                            &times;
-                        </motion.button>
-                    </motion.div>
-                )}
-            </AnimatePresence> */}
         </>
 
     )

@@ -1,7 +1,8 @@
 import { Button } from 'antd'
-import React from 'react'
+import React, { useState } from 'react'
 
 const ButtonCus = () => {
+    const [IsActive, setIsActive] = useState()
     const scrollToAboutSession = () => {
         const aboutSessionElement = document.querySelector('.introduce');
         if (aboutSessionElement) {
