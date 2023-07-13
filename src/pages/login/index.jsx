@@ -57,6 +57,7 @@ const LoginPage = () => {
                     <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
                     {error && <div className="error-message" style={{ color: "red", fontSize: '15px', textAlign: 'center' }}>{error}</div>}
                     <button onClick={handleLogin}>Login</button>
+                    <button onClick={() => navigate('/')}>Back</button>
                 </form>
             </div>
         </div>

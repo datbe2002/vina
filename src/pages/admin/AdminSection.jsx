@@ -50,7 +50,8 @@ const AdminSection = () => {
             <div style={{
                 paddingTop: "200px",
                 textAlign: "center",
-                width: '100vw'
+                width: '100vw',
+                height: '100vh'
             }}>
                 <div style={{ minHeight: "10vh", color: "red", fontSize: "2rem" }}>You are not authorized to access this site !</div>
                 <button style={{

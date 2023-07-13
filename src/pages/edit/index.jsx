@@ -6,8 +6,10 @@ import Editor from '../../components/Editor'
 import { updateBlog } from '../../redux/slice/blogSlice'
 import { URL } from '../../../tkps'
 import logo from '../../assets/pics/logo.png'
+import LoadingSpin from '../../components/LoadingSpin'
 const EditPage = () => {
     const auth = useSelector(state => state.blog?.USER)
+    const loading = useSelector(state => state.blog?.loading)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { id } = useParams()
@@ -45,15 +47,9 @@ const EditPage = () => {
             });
     }, []);
 
-
-
-
-
-    // console.log(postInfo)
-
     if (!auth) {
         return (
-            <div style={{ paddingTop: "200px", minHeight: "60vh", textAlign: "center", color: "red", fontSize: "2rem" }}>You are not authorized to access this site !</div>
+            <div style={{ paddingTop: "200px", height: "100vh", textAlign: "center", color: "red", fontSize: "2rem" }}>You are not authorized to access this site !</div>
         )
     }
 
@@ -63,7 +59,7 @@ const EditPage = () => {
                 width: '100vw',
                 textAlign: "center",
             }}>
-                <img src={URL + cover} alt="" />
+                <img className='image-edit' src={URL + cover} alt="" />
             </div>
             <form
                 onSubmit={updatePost}
@@ -83,7 +79,9 @@ const EditPage = () => {
                     onChange={ev => setFiles(ev.target.files)}
                     accept="image/*" />
                 <Editor value={content} onChange={setContent} />
-                <button style={{ marginTop: '5px' }}>Edit blog</button>
+                <button style={{ marginTop: '5px' }}>
+                    {loading ? <LoadingSpin /> : 'Edit blog'}
+                </button>
             </form>
         </>
     )

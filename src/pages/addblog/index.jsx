@@ -4,15 +4,18 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import Editor from '../../components/Editor'
 import './add.scss'
 import { createBlog } from '../../redux/slice/blogSlice'
+import LoadingSpin from '../../components/LoadingSpin'
 const AddBlog = () => {
     const auth = useSelector(state => state.blog?.USER)
+    const loading = useSelector(state => state.blog?.loading)
     const navigate = useNavigate()
     if (!auth) {
         return (
             <div style={{
                 paddingTop: "200px",
                 textAlign: "center",
-                width: '100vw'
+                width: '100vw',
+                height: '100vh'
             }}>
                 <div style={{ minHeight: "10vh", color: "red", fontSize: "2rem" }}>You are not authorized to access this site !</div>
                 <button style={{
@@ -53,7 +56,7 @@ const AddBlog = () => {
 
 
     if (redirect) {
-        return <Navigate to={'/blog'} />
+        return <Navigate to={'/admin/control/Mxh8m6fIlKps3L5qDdi0'} />
     }
 
     return (
@@ -75,7 +78,9 @@ const AddBlog = () => {
                 accept="image/*"
                 required />
             <Editor value={content} onChange={setContent} />
-            <button style={{ marginTop: '5px' }}>Create blog</button>
+            <button style={{ marginTop: '5px' }}>
+                {loading ? <LoadingSpin /> : 'Create blog'}
+            </button>
         </form>
     )
 }

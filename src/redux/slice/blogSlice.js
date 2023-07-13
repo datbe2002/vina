@@ -216,6 +216,17 @@ export const blogSlice = createSlice({
                 state.loading = false;
                 state.msg = action.payload;
             })
+            .addCase(updateBlog.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(updateBlog.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error;
+            })
+            .addCase(updateBlog.fulfilled, (state, action) => {
+                state.loading = false;
+                state.msg = action.payload;
+            })
             .addCase(deleteContact.pending, (state) => {
                 state.loading = true;
             })
