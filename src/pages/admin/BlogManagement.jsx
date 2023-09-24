@@ -1,10 +1,9 @@
 import { Button, Table } from 'antd'
-import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteBlog, getBlogDateOnly } from '../../redux/slice/blogSlice';
+import { deleteBlog } from '../../redux/slice/blogSlice';
 import { useNavigate } from 'react-router-dom';
 const { Column } = Table;
-import { EditOutlined, PlusCircleOutlined } from '@ant-design/icons'
+import { PlusCircleOutlined } from '@ant-design/icons'
 
 const BlogManagement = () => {
     const blogs = useSelector(state => state.blog?.blogCollectionDateOnly)

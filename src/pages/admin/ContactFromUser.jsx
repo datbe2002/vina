@@ -1,5 +1,4 @@
 import { Button, Table } from 'antd'
-import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteContact } from '../../redux/slice/blogSlice';
 const { Column } = Table;

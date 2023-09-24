@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import './editPage.scss'
 import { useNavigate, useParams } from 'react-router-dom'
-import Editor from '../../components/Editor'
-import { updateBlog } from '../../redux/slice/blogSlice'
 import { URL } from '../../../tkps'
-import logo from '../../assets/pics/logo.png'
+import Editor from '../../components/Editor'
 import LoadingSpin from '../../components/LoadingSpin'
+import { updateBlog } from '../../redux/slice/blogSlice'
+import './editPage.scss'
 const EditPage = () => {
     const auth = useSelector(state => state.blog?.USER)
     const loading = useSelector(state => state.blog?.loading)

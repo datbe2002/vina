@@ -1,4 +1,3 @@
-import React from 'react'
 import BrandLoop from './BrandLoop'
 
 const BrandCooperate = () => {

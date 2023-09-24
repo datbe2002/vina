@@ -1,4 +1,3 @@
-import React from 'react'
 import AboutInfo from './AboutInfo'
 
 const AboutSession = () => {

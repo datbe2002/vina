@@ -1,4 +1,3 @@
-import React from 'react'
 import vninflu from '../../../assets/pics/vni2.png'
 
 const MainPictureCore = () => {

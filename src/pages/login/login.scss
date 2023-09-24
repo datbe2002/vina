@@ -1,7 +1,10 @@
+@import '../../assets/scss/variable.scss';
+
 .login-section {
     height: 100vh;
     width: 100%;
     padding-top: 200px;
+    font-family: $main-font;
 
     .login-box {
         width: 30%;
@@ -31,6 +34,7 @@
                 border-radius: 5px;
                 border: 2px solid #958a8a;
                 padding-left: .7rem;
+                font-family: $main-font;
 
             }
 
@@ -43,6 +47,7 @@
                 border-radius: 5px;
                 font-size: 1rem;
                 cursor: pointer;
+                font-family: $main-font;
             }
         }
     }

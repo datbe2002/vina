@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import './mainPage.scss'
 import HomeSession from './HomeSession'
 import AboutSession from './AboutSession'
@@ -18,7 +18,7 @@ const MainPage = () => {
         dispatch(getBlogDateOnly())
         dispatch(getAllContact())
         dispatch(getAllContactDateOnly())
-    }, [])
+    }, [dispatch])
 
 
     return (

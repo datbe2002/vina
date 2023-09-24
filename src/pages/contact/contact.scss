@@ -1,3 +1,6 @@
+@import '../../assets/scss/variable.scss';
+
+
 .contact-page {
   // width: 99vw;
   display: flex;
@@ -29,7 +32,8 @@
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
   border-radius: 30px;
-  background-color: rgba(219, 222, 227, 0.5);
+  // background-color: rgba(219, 222, 227, 0.5);
+  background-color: white;
   display: grid;
   gap: 10px;
   overflow: auto;
@@ -99,11 +103,14 @@
   border-radius: 50px;
   background-color: #5790AB;
   color: white;
-  font-weight: bold;
   cursor: pointer;
   margin: 0 auto;
+  font-size: 1rem;
+  font-family: $main-font;
+  font-weight: bold;
+  transition: 0.4s;
 }
 
 .contact-container button:hover {
-  background-color: #5790AB;
+  background-color: #48778d;
 }

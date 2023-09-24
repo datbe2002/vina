@@ -1,4 +1,3 @@
-import React from 'react'
 import BlogSession from './BlogSession'
 import ReadmoreButton from './ReadmoreButton'
 

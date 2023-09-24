@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './admin.scss'
 import { getAllContact, getAllContactDateOnly, getBlog, getBlogDateOnly } from '../../redux/slice/blogSlice'
 import { Layout } from 'antd';
 import BlogManagement from './BlogManagement';
 import ContactFromUser from './ContactFromUser';
-import { color } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 const { Sider, Content } = Layout;
 import logo from '../../assets/pics/logo.png'

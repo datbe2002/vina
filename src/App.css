@@ -1,5 +1,13 @@
 .App {
-    width: 100vw;
-  background: linear-gradient(90deg, #DBDEE3 0%, #C6E4FF 100%);
+  width: 100vw;
+  /* background-image: linear-gradient(
+    to right,
+    #a3c8ff,
+    #94bffb,
+    #84b7f8,
+    #74aef4,
+    #61a6f0
+  ); */
+  background: linear-gradient(90deg, #dbdee3 0%, #c6e4ff 100%);
   outline-color: lime;
 }

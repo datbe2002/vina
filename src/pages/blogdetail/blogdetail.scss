@@ -72,63 +72,63 @@
         text-align: left;
     }
 
-    .login-container {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
+    // .login-container {
+    //     position: absolute;
+    //     top: 0;
+    //     right: 0;
+    //     left: 0;
+    //     bottom: 0;
+    //     background-color: rgba(0, 0, 0, 0.5);
 
-        .login-popup {
-            display: flex;
-            flex-direction: column;
-            width: 40%;
-            position: absolute;
-            right: 60px;
-            top: 280px;
-            background-color: white;
-            border-radius: 1rem;
+    //     .login-popup {
+    //         display: flex;
+    //         flex-direction: column;
+    //         width: 40%;
+    //         position: absolute;
+    //         right: 60px;
+    //         top: 280px;
+    //         background-color: white;
+    //         border-radius: 1rem;
 
-            .form-login {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                width: 60%;
-                margin: 0 auto;
-                padding-bottom: 4rem;
+    //         .form-login {
+    //             display: flex;
+    //             flex-direction: column;
+    //             gap: 10px;
+    //             width: 60%;
+    //             margin: 0 auto;
+    //             padding-bottom: 4rem;
 
-                input {
-                    height: 30px;
-                    border-radius: 5px;
-                    border: 1px solid black;
-                    padding-left: .7rem;
-                }
+    //             input {
+    //                 height: 30px;
+    //                 border-radius: 5px;
+    //                 border: 1px solid black;
+    //                 padding-left: .7rem;
+    //             }
 
-                button {
-                    background-color: #333;
-                    border: none;
-                    min-height: 3rem;
-                    color: #fff;
-                    font-weight: bold;
-                    border-radius: 5px;
-                    font-size: 1rem;
-                    cursor: pointer;
-                }
-            }
+    //             button {
+    //                 background-color: #333;
+    //                 border: none;
+    //                 min-height: 3rem;
+    //                 color: #fff;
+    //                 font-weight: bold;
+    //                 border-radius: 5px;
+    //                 font-size: 1rem;
+    //                 cursor: pointer;
+    //             }
+    //         }
 
-            .close-button {
-                width: 30px;
-                height: 30px;
-                border: none;
-                margin: 1rem 1rem;
-                border-radius: 50%;
-            }
+    //         .close-button {
+    //             width: 30px;
+    //             height: 30px;
+    //             border: none;
+    //             margin: 1rem 1rem;
+    //             border-radius: 50%;
+    //         }
 
-            .close-button:hover {
-                cursor: pointer;
-            }
-        }
-    }
+    //         .close-button:hover {
+    //             cursor: pointer;
+    //         }
+    //     }
+    // }
 
 }

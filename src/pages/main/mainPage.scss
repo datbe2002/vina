@@ -17,9 +17,8 @@
             margin: 0 auto;
             // height: 50vh;
             height: 50%;
-            @media (max-width: 768px) {
-                
-              }
+
+            @media (max-width: 768px) {}
         }
 
         .custom-button {
@@ -36,7 +35,8 @@
                 height: 3.75rem;
                 width: 12rem;
                 filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-                // margin-top: 100px;
+                font-size: large;
+                font-weight: bold;
             }
 
 
@@ -57,7 +57,7 @@
             font-weight: 300;
             font-size: 24px;
             line-height: 29.26px;
-            color: $middle-color;
+            color: $main-color;
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             border-top: 1px solid $middle-color;
         }
@@ -70,7 +70,7 @@
 
         .introduction-text {
             font-size: 2rem;
-            font-weight: 500;
+            font-weight: bold;
             color: $main-color;
             text-align: center;
         }
@@ -127,7 +127,7 @@
 
         .service-introduce {
             font-size: 2rem;
-            font-weight: 500;
+            font-weight: bold;
             color: $main-color;
             text-align: center;
         }
@@ -243,7 +243,7 @@
 
         .solution-introduce {
             font-size: 2rem;
-            font-weight: 500;
+            font-weight: bold;
             color: $main-color;
             text-align: center;
             padding-bottom: 3rem;
@@ -318,7 +318,7 @@
 
         .brand-introduce {
             font-size: 2rem;
-            font-weight: 500;
+            font-weight: bold;
             color: $main-color;
             text-align: center;
         }
@@ -357,7 +357,7 @@
 
         .blog-introduce {
             font-size: 2rem;
-            font-weight: 500;
+            font-weight: bold;
             color: $main-color;
             text-align: center;
             padding-bottom: 4rem;
@@ -441,13 +441,14 @@
 
             .button {
                 width: 10rem;
-                border-radius: 2px;
+                border-radius: 0.5rem;
                 border: none;
                 padding: 10px 15px;
                 background-color: $secondary-color;
                 color: white;
                 font-weight: 600;
                 transition: 0.4s;
+                font-family: $main-font;
             }
 
             .button:hover {

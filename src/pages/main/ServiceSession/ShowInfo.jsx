@@ -1,42 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import { animate, motion, useAnimation } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+/* eslint-disable react/prop-types */
+import { motion } from 'framer-motion'
+import { useState } from 'react'
 
+// eslint-disable-next-line react/prop-types
 const ShowInfo = ({ index, dat }) => {
 
     const [isAnimate, setIsAnimate] = useState(false)
 
-    const [cardRef, inView] = useInView()
-
-    const animationAbout = useAnimation()
-
-    useEffect(() => {
-        if (inView) {
-            animationAbout.start({
-                y: 0,
-                opacity: 1,
-                transition: {
-                    duration: 1
-                }
-
-            })
-
-        }
-        if (!inView) {
-            animationAbout.start({
-                y: '20vh',
-                opacity: 0,
-                transition: {
-                    duration: 1
-                }
-            })
-        }
-    }, [inView])
-
-
 
     return (
-        <motion.div className='card-box' key={index} ref={cardRef} animate={animationAbout}>
+        <motion.div className='card-box' key={index}
+            viewport={{ once: true, amount: 0.5 }}
+            initial='hidden'
+            whileInView="visible"
+            transition={{ delay: index === 0 ? 0 : index * 0.2, duration: 0.8 }}
+            variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0 }
+            }}>
             <div className='card-box-content'>
                 <img src={dat.icon}></img>
                 <div className='text-box-content'>{dat.text}</div>
@@ -59,7 +40,6 @@ const ShowInfo = ({ index, dat }) => {
                     animate={{
                         y: isAnimate ? 0 : 200,
                         opacity: isAnimate ? 1 : 0,
-                        // rotate: isAnimate ? 0 : 36000,
                         scale: isAnimate ? 1 : 0.5
                     }}
                     initial={{

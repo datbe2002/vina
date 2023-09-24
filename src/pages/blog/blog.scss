@@ -1,11 +1,11 @@
 @import '../../assets/scss/variable.scss';
 
 .blog-page-container {
-    font-family:  $main-font;
+    font-family: $main-font;
     width: 100%;
     height: fit-content;
     padding-top: 140px;
-    
+
     .introduce-blog {
         display: flex;
         align-items: center;
@@ -30,14 +30,16 @@
         margin: 1rem auto;
         display: flex;
         gap: 2rem;
-        padding-bottom: 2rem;
         height: fit-content;
         text-decoration: none;
         color: inherit;
+        background-color: white;
+        border-radius: 1rem;
+        padding-top: 1rem;
 
         img {
-  object-fit: cover;
-  margin-right: 20px;
+            object-fit: cover;
+            margin-right: 20px;
             width: 300px;
             height: 300px;
             border-radius: 1rem;
@@ -45,7 +47,6 @@
 
         .post-content {
             width: 100vw;
-            border-bottom: 1px solid #BEB8C4;
 
             .info {
                 margin: 6px 0;
@@ -70,9 +71,7 @@
             }
 
             .summary {
-
                 p {
-
                     display: -webkit-box;
                     -webkit-line-clamp: 3;
                     -webkit-box-orient: vertical;

@@ -1,40 +1,12 @@
 import { Carousel } from 'antd'
-import React, { useEffect } from 'react'
-import { motion, useAnimation } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import { motion } from 'framer-motion'
 
 const SecondCarousel = () => {
 
-    const [cardRef, inView] = useInView()
-
-    const animationAbout = useAnimation()
-
-    useEffect(() => {
-        if (inView) {
-            animationAbout.start({
-                y: 0,
-                opacity: 1,
-                transition: {
-                    duration: 1
-                }
-
-            })
-
-        }
-        if (!inView) {
-            animationAbout.start({
-                y: '20vh',
-                opacity: 0,
-                transition: {
-                    duration: 1
-                }
-            })
-        }
-    }, [inView])
     return (
         <div className='carousel-container'>
             <h1>CORE VALUE</h1>
-            <motion.div ref={cardRef} animate={animationAbout}>
+            <motion.div >
                 <Carousel autoplay style={{
                     fontFamily: 'Montserrat, sans-serif',
                     color: '#072D44'
@@ -48,7 +20,8 @@ const SecondCarousel = () => {
                             bottom: 0
                         }}
                         whileTap={{ cursor: 'grabbing' }}
-                        className='carousel-element'>
+                        className='carousel-element'
+                    >
 
                         <span>
                             Our mission is to empower brands to connect with their target audience by providing cutting-edge marketing solutions that generate measurable results, utilizing our unique network of close relationships with influencers to drive engagement and create lasting connections.

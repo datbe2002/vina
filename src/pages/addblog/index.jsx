@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Navigate, useNavigate } from 'react-router-dom'
 import Editor from '../../components/Editor'
@@ -6,6 +6,13 @@ import './add.scss'
 import { createBlog } from '../../redux/slice/blogSlice'
 import LoadingSpin from '../../components/LoadingSpin'
 const AddBlog = () => {
+    const [title, setTitle] = useState('');
+    const [summary, setSummary] = useState('');
+    const [content, setContent] = useState('');
+    const [files, setFiles] = useState('');
+    const [redirect, setRedirect] = useState(false);
+
+    const dispatch = useDispatch()
     const auth = useSelector(state => state.blog?.USER)
     const loading = useSelector(state => state.blog?.loading)
     const navigate = useNavigate()
@@ -32,13 +39,7 @@ const AddBlog = () => {
         )
     }
 
-    const [title, setTitle] = useState('');
-    const [summary, setSummary] = useState('');
-    const [content, setContent] = useState('');
-    const [files, setFiles] = useState('');
-    const [redirect, setRedirect] = useState(false);
 
-    const dispatch = useDispatch()
 
     async function createNewPost(ev) {
         const data = new FormData();

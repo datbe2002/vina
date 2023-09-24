@@ -14,19 +14,21 @@
         display: grid;
         justify-items: stretch;
         grid-template-columns: 1fr 1fr;
+        align-items: center;
 
         .ul-navbar {
             font-family: $main-font;
-
             list-style-type: none;
             margin: 0;
             padding: 0;
             overflow: hidden;
             display: flex;
             padding-top: 20px;
-            padding-bottom: 30px;
+            padding-bottom: 20px;
             font-weight: 400;
             font-size: 24px;
+            // align-items: center;
+            justify-content: center;
 
             .li-navbar {
                 margin: 0 10px;
@@ -37,11 +39,6 @@
                     text-decoration: none;
                     transition: color 0.3s ease;
                     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-
-                }
-
-                a.active {
-                    color: $middle-color;
                 }
             }
         }

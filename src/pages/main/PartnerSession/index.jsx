@@ -1,40 +1,11 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { motion, AnimatePresence, useAnimation } from 'framer-motion';
+/* eslint-disable react/prop-types */
+import { AnimatePresence, motion } from 'framer-motion';
+import { createContext, useEffect, useState } from 'react';
 import '../PartnerSession/partner.scss';
 import { GalleryData } from './GalleryData';
-import { useInView } from 'react-intersection-observer';
 
 export const MovieContext = createContext();
 
-const ScrollAnimationWrapper = ({ children }) => {
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-        } else {
-          setIsInView(false);
-        }
-      });
-    });
-
-    const target = document.querySelector('#partner-session');
-
-    if (target) {
-      observer.observe(target);
-    }
-
-    return () => {
-      if (target) {
-        observer.unobserve(target);
-      }
-    };
-  }, []);
-
-  return <div id="partner-session">{children(isInView)}</div>;
-};
 
 const PartnerSession = () => {
   const [data, setData] = useState([]);
@@ -60,35 +31,19 @@ const PartnerSession = () => {
     const handleMouseLeave = () => {
       setHovered(false);
     };
-    const [cardRef, inView] = useInView()
 
-    const animationAbout = useAnimation()
-
-    useEffect(() => {
-      if (inView) {
-        animationAbout.start({
-          y: 0,
-          opacity: 1,
-          transition: {
-            duration: 1
-          }
-
-        })
-
-      }
-      if (!inView) {
-        animationAbout.start({
-          y: '20vh',
-          opacity: 0,
-          transition: {
-            duration: 1
-          }
-        })
-      }
-    }, [inView])
 
     return (
-      <motion.div ref={cardRef} animate={animationAbout}>
+      <motion.div
+        viewport={{ once: true, amount: 0.5 }}
+        initial='hidden'
+        whileInView="visible"
+        transition={{ duration: 0.9 }}
+        variants={{
+          hidden: { opacity: 0, y: 50 },
+          visible: { opacity: 1, y: 0 }
+        }}
+      >
 
         <motion.div
           className="galleryItem"
@@ -116,63 +71,61 @@ const PartnerSession = () => {
   };
 
   return (
-    <ScrollAnimationWrapper>
-      {(isInView) => (
-        <div>
-          <div>
-            <div className="partner-session">
-              <div className="partner"></div>
 
-              <h3 className="partner-title">PARTNER</h3>
-              <div className="partner-title-content">
-                <div>
-                  GCC (Global Creator Club) is a marketing company holding thousands of KOLs in Korea.
-                </div>
-                <div>
-                  MORE THAN 100 BIG KOLS and 200 KOCS IN VIETNAM always ready to cooperate with VINA.
-                </div>
+
+    <div id="partner-session">
+      <div>
+        <div>
+          <div className="partner-session">
+            <div className="partner"></div>
+
+            <h3 className="partner-title">PARTNER</h3>
+            <div className="partner-title-content">
+              <div>
+                GCC (Global Creator Club) is a marketing company holding thousands of KOLs in Korea.
               </div>
-            </div>
-          </div>
-          <div className="App">
-            <div className="galleryWrapper">
-              <div className="filterItem">
-                <ul>
-                  {collection.map((item) => (
-                    <li key={item}>
-                      <motion.button
-                        whileHover={{
-                          scale: 1.1,
-                        }}
-                        whileTap={{
-                          scale: 0.8
-                        }}
-                        onClick={() => gallery_filter(item)}>{item}</motion.button>
-                    </li>
-                  ))}
-                </ul>
+              <div>
+                MORE THAN 100 BIG KOLS and 200 KOCS IN VIETNAM always ready to cooperate with VINA.
               </div>
-              <AnimatePresence>
-                {isInView && (
-                  <motion.div
-                    key="gallery"
-                    className="galleryContainer"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {data.map((item) => (
-                      <GalleryItem key={item.id} item={item} />
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
             </div>
           </div>
         </div>
-      )}
-    </ScrollAnimationWrapper>
+        <div className="App">
+          <div className="galleryWrapper">
+            <div className="filterItem">
+              <ul>
+                {collection.map((item) => (
+                  <li key={item}>
+                    <motion.button
+                      whileHover={{
+                        scale: 1.1,
+                      }}
+                      whileTap={{
+                        scale: 0.8
+                      }}
+                      onClick={() => gallery_filter(item)}>{item}</motion.button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <AnimatePresence>
+              <motion.div
+                key="gallery"
+                className="galleryContainer"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {data.map((item) => (
+                  <GalleryItem key={item.id} item={item} />
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

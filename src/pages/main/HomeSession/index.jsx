@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import MainPictureCore from './MainPictureCore'
 import ButtonCus from './ButtonCus'
 import BorderInfo from './BorderInfo'
