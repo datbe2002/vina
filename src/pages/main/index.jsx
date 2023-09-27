@@ -1,13 +1,13 @@
+import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-import './mainPage.scss'
 import HomeSession from './HomeSession'
 import AboutSession from './AboutSession'
 import ServiceSession from './ServiceSession'
 import SolutionSession from './SolutionSession'
 import BrandCooperate from './BrandCooperate'
 import Blog from './BlogSession/Blog'
-import { useDispatch } from 'react-redux'
 import PartnerSession from './PartnerSession'
+import './mainPage.scss'
 
 import { getAllContact, getAllContactDateOnly, getBlog, getBlogDateOnly } from '../../redux/slice/blogSlice'
 const MainPage = () => {
