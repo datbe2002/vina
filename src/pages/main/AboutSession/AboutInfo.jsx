@@ -58,7 +58,16 @@ const AboutInfo = () => {
                 </motion.div>
             </div>
             <div className='under'>
-                <motion.div className='picture-under'
+                <motion.div
+                    viewport={{ once: true, amount: 0.8 }}
+                    initial='hidden'
+                    whileInView="visible"
+                    transition={{ duration: 0.9 }}
+                    variants={{
+                        hidden: { opacity: 0, y: 50 },
+                        visible: { opacity: 1, y: 0 }
+                    }}
+                    className='picture-under'
                 >
                     <img src={pic3} alt="hinh" />
                 </motion.div>

@@ -1,67 +1,89 @@
-import { memo, useState } from 'react';
-import PropTypes from 'prop-types';
-import './contact.scss';
-import contactImage from '../../assets/pics/contactlogo.png';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { motion } from 'framer-motion'
+import contactImage from '../../assets/pics/contactlogo.png';
+import LoadingSpin from '../../components/LoadingSpin';
 import { submitForm } from '../../redux/slice/blogSlice';
+import './contact.scss';
+import { useLocation } from 'react-router-dom';
 
 const ContactPage = () => {
+    const { pathname } = useLocation()
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     const dispatch = useDispatch()
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [subject, setSubject] = useState('');
-    const [message, setMessage] = useState('');
-    const [isSubmitting, setIsSubmitting] = useState(false);
-
     const loading = useSelector(state => state.blog.loading)
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        subject: '',
+        message: '',
+    });
+
+    const { firstName, lastName, email, subject, message } = formData;
 
 
-    const handleFirstNameChange = (e) => {
-        setFirstName(e.target.value);
-    };
-
-    const handleLastNameChange = (e) => {
-        setLastName(e.target.value);
-    };
-
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
-
-    const handleSubjectChange = (e) => {
-        setSubject(e.target.value);
-    };
-
-    const handleMessageChange = (e) => {
-        setMessage(e.target.value);
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("first" + loading)
-        setIsSubmitting(loading);
-
-        dispatch(submitForm({ firstName, lastName, email, subject, message }));
-
-        setFirstName('');
-        setLastName('');
-        setEmail('');
-        setSubject('');
-        setMessage('');
-        console.log("second" + loading)
-        setIsSubmitting(loading);
-
+        dispatch(submitForm(formData));
+        setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            subject: '',
+            message: '',
+        });
     };
 
+    const contactVariant = {
+        hidden: {
+            opacity: 0,
+            y: '5rem'
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: 'spring',
+                bounce: 0.5,
+                duration: 0.8,
+                delay: 0.3
+            }
+        }
+    }
+
+    const headerVariant = {
+        hidden: {
+            opacity: 0,
+            x: '-5rem'
+        },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                type: 'spring',
+                bounce: 0.5,
+                duration: 0.8,
+            }
+        }
+    }
 
     return (
 
         <div className='contact-page'>
-            <div className='contact-image-container'>
+            <motion.div variants={headerVariant} initial="hidden" animate="visible" className='contact-image-container'>
                 <img src={contactImage} alt='Contact' className='contact-image' />
-            </div>
-            <div className='contact-container'>
+            </motion.div>
+            <motion.div variants={contactVariant} initial="hidden" animate="visible" className='contact-container'>
+                <h1 className='contact-tilte'>CONTACT US</h1>
                 <form onSubmit={handleSubmit}>
                     <div className='name-group'>
                         <div className='form-group'>
@@ -70,8 +92,9 @@ const ContactPage = () => {
                                 className='first-name'
                                 type='text'
                                 id='firstName'
+                                name='firstName'
                                 value={firstName}
-                                onChange={handleFirstNameChange}
+                                onChange={handleChange}
                                 required
                             />
                         </div>
@@ -81,8 +104,9 @@ const ContactPage = () => {
                                 className='last-name'
                                 type='text'
                                 id='lastName'
+                                name='lastName'
                                 value={lastName}
-                                onChange={handleLastNameChange}
+                                onChange={handleChange}
                                 required
                             />
                         </div>
@@ -93,8 +117,9 @@ const ContactPage = () => {
                             className='email'
                             type='email'
                             id='email'
+                            name='email'
                             value={email}
-                            onChange={handleEmailChange}
+                            onChange={handleChange}
                             required
                         />
                     </div>
@@ -104,8 +129,9 @@ const ContactPage = () => {
                             className='subject'
                             type='text'
                             id='subject'
+                            name='subject'
                             value={subject}
-                            onChange={handleSubjectChange}
+                            onChange={handleChange}
                             required
                         />
                     </div>
@@ -113,23 +139,21 @@ const ContactPage = () => {
                         <label htmlFor='message'>Message:</label>
                         <textarea
                             id='message'
+                            name='message'
                             value={message}
-                            onChange={handleMessageChange}
+                            onChange={handleChange}
                             required
                             className='textarea'
                         />
                     </div>
-                    <button type='submit' disabled={isSubmitting}>
-                        {isSubmitting ? 'Submitting...' : 'Submit'}
+                    <button type='submit' disabled={loading}>
+                        {loading ? <LoadingSpin size={24} /> : 'Submit'}
                     </button>
                 </form>
-            </div>
+            </motion.div>
         </div>
     );
 };
 
-ContactPage.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-};
 
-export default memo(ContactPage);
+export default ContactPage;

@@ -2,7 +2,6 @@
 
 
 .contact-page {
-  // width: 99vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,15 +27,17 @@
   justify-content: center;
   height: auto;
   padding: 20px;
-  // border: 1px solid #000000;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-
-  border-radius: 30px;
-  // background-color: rgba(219, 222, 227, 0.5);
+  border-radius: 5px;
   background-color: white;
   display: grid;
   gap: 10px;
   overflow: auto;
+
+  .contact-tilte {
+    text-align: center;
+    padding: 20px;
+  }
 }
 
 .contact-container form {
@@ -45,6 +46,7 @@
   gap: 10px;
 
 }
+
 
 .form-group {
   grid-column: span 1;
@@ -80,8 +82,8 @@
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
-  padding-left: 1.3rem;
-  border-radius: 50px;
+  padding-left: 0.6rem;
+  border-radius: 5px;
   resize: none;
   font-size: 1.3rem;
 }
@@ -94,17 +96,19 @@
 
 
 .contact-container button {
-  height: 64px;
+  height: 60px;
   justify-items: center;
   display: block;
-  width: 30%;
+  width: 102.5%;
   padding: 10px;
   border: none;
-  border-radius: 50px;
+  border-radius: 5px;
   background-color: #5790AB;
   color: white;
   cursor: pointer;
   margin: 0 auto;
+  margin-bottom: 1rem;
+
   font-size: 1rem;
   font-family: $main-font;
   font-weight: bold;

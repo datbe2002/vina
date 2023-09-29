@@ -79,7 +79,7 @@ const EditPage = () => {
                     accept="image/*" />
                 <Editor value={content} onChange={setContent} />
                 <button style={{ marginTop: '5px' }}>
-                    {loading ? <LoadingSpin /> : 'Edit blog'}
+                    {loading ? <LoadingSpin size={24} /> : 'Edit blog'}
                 </button>
             </form>
         </>

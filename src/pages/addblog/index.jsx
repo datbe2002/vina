@@ -80,7 +80,7 @@ const AddBlog = () => {
                 required />
             <Editor value={content} onChange={setContent} />
             <button style={{ marginTop: '5px' }}>
-                {loading ? <LoadingSpin /> : 'Create blog'}
+                {loading ? <LoadingSpin size={24} /> : 'Create blog'}
             </button>
         </form>
     )

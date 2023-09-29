@@ -1,20 +1,19 @@
 .post-page {
     width: 100%;
     padding-top: 140px;
-    text-align: center;
     position: relative;
+    width: 80%;
+    margin: 0 auto;
 
     .image {
-        max-height: fit-content;
+        max-height: 500px;
         display: flex;
         overflow: hidden;
 
         img {
             object-fit: cover;
             object-position: center center;
-            margin: 0 auto;
-            width: 50%;
-            border-radius: 1rem;
+            width: 100%;
         }
 
     }
@@ -25,14 +24,12 @@
     }
 
     h1 {
-        width: 80%;
-        margin: 0 auto;
-        padding-top: 2rem;
+
+        padding-bottom: 2rem;
         text-align: center;
     }
 
     time {
-        text-align: center;
         display: block;
         font-size: 1rem;
         color: #aaa;
@@ -40,10 +37,10 @@
     }
 
     .author {
-        text-align: center;
         margin-bottom: 20px;
         font-size: 1rem;
         font-weight: bold;
+
     }
 
     .edit-row {
@@ -66,8 +63,7 @@
     }
 
     .content {
-        width: 80%;
-        margin: 0 auto;
+
         padding: 2rem 0;
         text-align: left;
     }

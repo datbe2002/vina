@@ -12,14 +12,14 @@ const SecondCarousel = () => {
                     color: '#072D44'
                 }}>
                     <motion.div
-                        drag
-                        dragConstraints={{
-                            left: 0,
-                            right: 0,
-                            top: 0,
-                            bottom: 0
+                        viewport={{ once: true, amount: 0.8 }}
+                        initial='hidden'
+                        whileInView="visible"
+                        transition={{ duration: 1, bounce: 0.6, type: 'spring' }}
+                        variants={{
+                            hidden: { opacity: 0, x: -50 },
+                            visible: { opacity: 1, x: 0 }
                         }}
-                        whileTap={{ cursor: 'grabbing' }}
                         className='carousel-element'
                     >
 
@@ -28,15 +28,6 @@ const SecondCarousel = () => {
                         </span>
                     </motion.div>
                     <motion.div
-                        drag
-                        dragConstraints={{
-                            left: 0,
-                            right: 0,
-                            top: 0,
-                            bottom: 0
-                        }}
-                        whileTap={{ cursor: 'grabbing' }}
-
                         className='carousel-element'>
 
                         <span>
@@ -44,15 +35,6 @@ const SecondCarousel = () => {
                         </span>
                     </motion.div>
                     <motion.div
-                        drag
-                        dragConstraints={{
-                            left: 0,
-                            right: 0,
-                            top: 0,
-                            bottom: 0
-                        }}
-                        whileTap={{ cursor: 'grabbing' }}
-
                         className='carousel-element'>
 
                         <span>
@@ -60,15 +42,6 @@ const SecondCarousel = () => {
                         </span>
                     </motion.div>
                     <motion.div
-                        drag
-                        dragConstraints={{
-                            left: 0,
-                            right: 0,
-                            top: 0,
-                            bottom: 0
-                        }}
-                        whileTap={{ cursor: 'grabbing' }}
-
                         className='carousel-element'>
 
                         <span>

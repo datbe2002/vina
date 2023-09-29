@@ -4,11 +4,13 @@ import "./header.scss"
 import { Link, NavLink } from 'react-router-dom';
 import '../../assets/scss/variable.scss'
 import logo from '../../assets/pics/logo.png'
-import scrollBehaviourHook from "./scrollBehaviourHook";
+import scrollBehaviourHook from "../../hooks/scrollBehaviourHook";
 
 const Header = () => {
 
     const [isScrolled, setIsScrolled] = useState(false);
+
+    const [isActive, setIsActive] = useState(false)
 
     useEffect(() => {
         const handleScroll = () => {
@@ -70,13 +72,13 @@ const Header = () => {
         <div className='header-container'>
             <nav className={`header-navbar ${isScrolled ? 'scrolled' : ''}`}>
                 <div className='grid-nav'>
-                    <ul className='ul-navbar' style={{ display: 'flex', justifyContent: 'center' }}>
+                    <ul className='ul-navbar-left' style={{ display: 'flex', justifyContent: 'center' }}>
                         <span>
                             <Link to={'/'}>
                                 <img src={logo} width={55} height={55} alt="loogo" />
                             </Link>
                         </span>
-                        <li className='li-navbar' style={{ fontSize: '32px' }}>
+                        <li className='li-navbar-left' style={{ fontSize: '32px' }}>
                             <NavLink onClick={scrollToHomeSession} >
                                 Home
                             </NavLink>
@@ -86,15 +88,19 @@ const Header = () => {
                 </div>
                 <div className='grid-nav'>
                     <ul className='ul-navbar'>
-                        {NAV_LINK.map((nav, index) => (
-                            <li key={index} className='li-navbar'>
-                                {nav.path ? <NavLink to={nav.path} >
-                                    {nav.text}
-                                </NavLink> : <NavLink onClick={nav.onClick} >
-                                    {nav.text}
-                                </NavLink>}
-                            </li>
-                        ))}
+                        {NAV_LINK.map((nav, index) => {
+                            return (
+                                <li key={index}
+                                    onClick={() => setIsActive(nav.text)}
+                                    className={`li-navbar ${isActive === nav.text ? `border-active` : null}`}>
+                                    {nav.path ? <NavLink to={nav.path} >
+                                        {nav.text}
+                                    </NavLink> : <NavLink onClick={nav.onClick} >
+                                        {nav.text}
+                                    </NavLink>}
+                                </li>
+                            )
+                        })}
                     </ul>
                 </div>
             </nav>

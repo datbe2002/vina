@@ -2,8 +2,8 @@
 
 .blog-page-container {
     font-family: $main-font;
-    width: 100%;
-    height: fit-content;
+    width: 95%;
+    margin: 0 auto;
     padding-top: 140px;
 
     .introduce-blog {
@@ -24,62 +24,62 @@
         }
     }
 
-    .post {
-        grid-row: inherit;
-        width: 80%;
-        margin: 1rem auto;
-        display: flex;
-        gap: 2rem;
-        height: fit-content;
-        text-decoration: none;
-        color: inherit;
-        background-color: white;
-        border-radius: 1rem;
-        padding-top: 1rem;
+    .postlist-wrap {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 3rem;
 
-        img {
-            object-fit: cover;
-            margin-right: 20px;
-            width: 300px;
-            height: 300px;
-            border-radius: 1rem;
-        }
+        .postitem-wrap {
+            text-decoration: none;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            min-width: 400px;
 
-        .post-content {
-            width: 100vw;
+            .postitem-cover {
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+            }
 
-            .info {
-                margin: 6px 0;
-                color: #BEB8C4;
-                font-size: 1rem;
-                font-weight: light;
-
-                .author {
-                    padding-right: 10px;
+            .postitem-content {
+                h2 {
+                    margin: 0.5rem 0 1rem 0;
+                    flex: 1;
                 }
-            }
 
-            h2 {
-                font-size: 1.5rem;
-                margin: 0;
-                color: #657786;
-                transition: 0.3s;
-            }
-
-            h2:hover {
-                color: black;
-            }
-
-            .summary {
-                p {
-                    display: -webkit-box;
-                    -webkit-line-clamp: 3;
-                    -webkit-box-orient: vertical;
-                    font-size: 1rem;
+                .postitem-summary {
+                    position: relative;
+                    max-height: 50px;
                     overflow: hidden;
+                    padding-right: 0.6rem;
+                }
 
+                .postitem-author {
+                    display: flex;
+                    align-items: center;
+                    margin-top: 1rem;
+                    justify-content: space-between;
                 }
             }
+        }
+    }
+}
+
+@media (max-width: 1230px) {
+    .blog-page-container {
+
+        .postlist-wrap {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-page-container {
+
+        .postlist-wrap {
+            grid-template-columns: repeat(1, 1fr);
         }
     }
 }

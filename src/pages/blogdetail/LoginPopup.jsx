@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+/* eslint-disable react/prop-types */
+import { useState } from 'react'
 import { PASSWORD, USERNAME } from '../../../tkps';
 import { useDispatch } from 'react-redux';
 import { setUserAuth } from '../../redux/slice/blogSlice';
 
 const LoginPopup = ({ onClose }) => {
-    const navigate = useNavigate()
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');

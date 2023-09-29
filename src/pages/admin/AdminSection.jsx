@@ -26,8 +26,6 @@ const AdminSection = () => {
         lineHeight: '50px',
         color: '#fff',
         background: 'linear-gradient(90deg, #DBDEE3 0%, #C6E4FF 100%)'
-
-
     };
     const siderStyle = {
         textAlign: 'center',

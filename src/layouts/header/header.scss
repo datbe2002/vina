@@ -16,6 +16,31 @@
         grid-template-columns: 1fr 1fr;
         align-items: center;
 
+        .ul-navbar-left {
+            font-family: $main-font;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-weight: 400;
+            font-size: 24px;
+            justify-content: center;
+
+            .li-navbar-left {
+                margin: 0 10px;
+                // padding-top: 3px;
+
+                a {
+                    color: $secondary-color;
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                }
+            }
+        }
+
         .ul-navbar {
             font-family: $main-font;
             list-style-type: none;
@@ -37,12 +62,20 @@
                 a {
                     color: $secondary-color;
                     text-decoration: none;
+
                     transition: color 0.3s ease;
                     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
                 }
+
+
             }
+
         }
 
+    }
+
+    .border-active {
+        border-bottom: 3px solid $secondary-color ;
     }
 
     .header-navbar.scrolled a {
@@ -56,7 +89,6 @@
 
     .progress-bar {
         font-family: $main-font;
-
         position: fixed;
         top: 0;
         left: 0;

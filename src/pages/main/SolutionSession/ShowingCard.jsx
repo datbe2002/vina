@@ -27,7 +27,7 @@ const ShowingCard = ({ showingCard }) => {
                         key={item.id}
                         className={`show-card-element ${flippedItems.includes(item.id) ? 'flipped' : ''}`}
                         onClick={() => handleItemClick(item.id)}
-                        viewport={{ once: true, amount: 0.5 }}
+                        viewport={{ once: true, amount: 0.3 }}
                         initial='hidden'
                         whileInView="visible"
                         transition={{ delay: index === 0 ? 0 : index * 0.2, duration: 0.8 }}

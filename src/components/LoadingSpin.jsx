@@ -1,12 +1,13 @@
+/* eslint-disable react/prop-types */
 import { LoadingOutlined } from '@ant-design/icons';
 import { Spin } from 'antd';
-import React from 'react'
 
-const LoadingSpin = () => {
+const LoadingSpin = ({ size, color }) => {
     const antIcon = (
         <LoadingOutlined
             style={{
-                fontSize: 24,
+                fontSize: size,
+                color: color || 'white'
             }}
             spin
         />
