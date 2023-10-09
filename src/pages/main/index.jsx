@@ -1,27 +1,16 @@
-import { useDispatch } from 'react-redux'
-import { useEffect } from 'react'
 import HomeSession from './HomeSession'
 import AboutSession from './AboutSession'
 import ServiceSession from './ServiceSession'
 import SolutionSession from './SolutionSession'
-// import BrandCooperate from './BrandCooperate'
-// import Blog from './BlogSession/Blog'
 import PartnerSession from './PartnerSession'
+import BrandCarouselAuto from './BrandCarouselAuto/BrandCarouselAuto'
+import useScrollToTop from '../../hooks/useScrollToTop'
+import useInitialDataFetch from '../../hooks/useInitialDataFetch'
 import './mainPage.scss'
 
-import { getAllContact, getAllContactDateOnly, getBlog, getBlogDateOnly } from '../../redux/slice/blogSlice'
-import BrandCarouselAuto from './BrandCarouselAuto/BrandCarouselAuto'
 const MainPage = () => {
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(getBlog())
-        dispatch(getBlogDateOnly())
-        dispatch(getAllContact())
-        dispatch(getAllContactDateOnly())
-    }, [dispatch])
-
-
+    useScrollToTop()
+    useInitialDataFetch()
     return (
         <div className='main-page-container'>
             <HomeSession />

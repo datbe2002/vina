@@ -5,19 +5,21 @@ const SliderBrand = ({ brands, direction }) => {
             <div className="slider">
                 <div className="slider-track">
                     {brands.map((p, index) => (
-                        <div key={index} className="slide">
-                            <img src={p} alt="logo" />
-                        </div>
+                        <ImgBrandLoop p={p} key={`brand-${index}`} />
                     ))}
                     {brands.map((p, index) => (
-                        <div key={index} className="slide">
-                            <img src={p} alt="logo" />
-                        </div>
+                        <ImgBrandLoop p={p} key={`logo-${index}`} />
                     ))}
                 </div>
             </div>
         </div>
     )
+}
+
+const ImgBrandLoop = ({ p }) => {
+    return <div className="slide">
+        <img src={p} alt="logo" />
+    </div>
 }
 
 export default SliderBrand

@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useState } from 'react'
 import './admin.scss'
-import { getAllContact, getAllContactDateOnly, getBlog, getBlogDateOnly } from '../../redux/slice/blogSlice'
 import { Layout } from 'antd';
 import BlogManagement from './BlogManagement';
 import ContactFromUser from './ContactFromUser';
 import { useNavigate } from 'react-router-dom';
 const { Sider, Content } = Layout;
 import logo from '../../assets/pics/logo.png'
+import useInitialDataFetch from '../../hooks/useInitialDataFetch';
+import { useSelector } from 'react-redux';
 
 const AdminSection = () => {
 
-    const auth = useSelector(state => state.blog?.USER)
+    useInitialDataFetch()
 
-    const dispatch = useDispatch()
+    const auth = useSelector(state => state.blog?.USER)
 
     const [change, setChange] = useState('Blogs')
 
@@ -34,13 +34,6 @@ const AdminSection = () => {
         height: "100vh",
         background: 'linear-gradient(90deg, rgba(156, 205, 219, 0.2) 0%, rgba(254, 159, 184, 0.2) 100%)'
     };
-
-    useEffect(() => {
-        dispatch(getBlog())
-        dispatch(getBlogDateOnly())
-        dispatch(getAllContact())
-        dispatch(getAllContactDateOnly())
-    }, [])
 
     if (!auth) {
         return (

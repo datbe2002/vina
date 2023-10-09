@@ -44,7 +44,7 @@ const EditPage = () => {
                     setCover(p.cover)
                 });
             });
-    }, []);
+    }, [id]);
 
     if (!auth) {
         return (

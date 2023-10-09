@@ -1,18 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { motion } from 'framer-motion'
 import contactImage from '../../assets/pics/contactlogo.png';
-import LoadingSpin from '../../components/LoadingSpin';
 import { submitForm } from '../../redux/slice/blogSlice';
 import './contact.scss';
-import { useLocation } from 'react-router-dom';
-
+import ContactForm from './ContactForm';
+import useScrollToTop from '../../hooks/useScrollToTop'
 const ContactPage = () => {
-    const { pathname } = useLocation()
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [pathname]);
-
+    useScrollToTop()
     const dispatch = useDispatch()
     const loading = useSelector(state => state.blog.loading)
     const [formData, setFormData] = useState({
@@ -23,17 +18,12 @@ const ContactPage = () => {
         message: '',
     });
 
-    const { firstName, lastName, email, subject, message } = formData;
-
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+    const handleSubmit = (formData) => {
+        dispatch(submitForm(formData));
+        resetForm();
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(submitForm(formData));
+    const resetForm = () => {
         setFormData({
             firstName: '',
             lastName: '',
@@ -84,7 +74,7 @@ const ContactPage = () => {
             </motion.div>
             <motion.div variants={contactVariant} initial="hidden" animate="visible" className='contact-container'>
                 <h1 className='contact-tilte'>CONTACT US</h1>
-                <form onSubmit={handleSubmit}>
+                {/* <form onSubmit={handleSubmit}>
                     <div className='name-group'>
                         <div className='form-group'>
                             <label htmlFor='firstName'>First Name:</label>
@@ -149,7 +139,12 @@ const ContactPage = () => {
                     <button type='submit' disabled={loading}>
                         {loading ? <LoadingSpin size={24} /> : 'Submit'}
                     </button>
-                </form>
+                </form> */}
+                <ContactForm
+                    formData={formData}
+                    setFormData={setFormData}
+                    onSubmit={handleSubmit}
+                    loading={loading} />
             </motion.div>
         </div>
     );

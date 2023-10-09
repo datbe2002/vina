@@ -9,9 +9,11 @@ import scrollBehaviourHook from "../../hooks/scrollBehaviourHook";
 const Header = () => {
 
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMenuOpen, setMenuOpen] = useState(false);
 
-    const [isActive, setIsActive] = useState(false)
-
+    const toggleMenu = () => {
+        setMenuOpen(!isMenuOpen);
+    };
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0) {
@@ -83,16 +85,14 @@ const Header = () => {
                                 Home
                             </NavLink>
                         </li>
-
                     </ul>
                 </div>
-                <div className='grid-nav'>
-                    <ul className='ul-navbar'>
+                <div className='grid-nav-menu'>
+                    <ul className={`ul-navbar ${isMenuOpen ? 'open' : ''}`}>
                         {NAV_LINK.map((nav, index) => {
                             return (
                                 <li key={index}
-                                    onClick={() => setIsActive(nav.text)}
-                                    className={`li-navbar ${isActive === nav.text ? `border-active` : null}`}>
+                                    className={`li-navbar `}>
                                     {nav.path ? <NavLink to={nav.path} >
                                         {nav.text}
                                     </NavLink> : <NavLink onClick={nav.onClick} >
@@ -101,6 +101,14 @@ const Header = () => {
                                 </li>
                             )
                         })}
+                    </ul>
+                    <ul className="ul-navbar-menu">
+                        <input
+                            id="menu-toggle"
+                            checked={isMenuOpen}
+                            onChange={toggleMenu}
+                            type="checkbox" className="toggle-menu" />
+                        <div className="hamburger"></div>
                     </ul>
                 </div>
             </nav>
