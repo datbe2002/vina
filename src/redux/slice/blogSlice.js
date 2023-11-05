@@ -6,8 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const axiosCus = axios.create({
-  // baseURL: "https://vina-landing-page.onrender.com/api",
-  baseURL: "http://localhost:3000/api",
+  baseURL: "http://14.225.205.241:3000/api",
 });
 
 const initialState = {

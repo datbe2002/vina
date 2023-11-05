@@ -16,7 +16,7 @@ const Blog = () => {
 
     const blogs = useSelector((state) => state.blog?.blogCollection)
 
-    if (!blogs.length) {
+    if (blogs.length < 1) {
         return (
             <div className='blog-page-container'>
                 <ImgLogoBlog />
@@ -28,7 +28,7 @@ const Blog = () => {
                         height: '30vh',
                     }}
                 >
-                    <LoadingSpin size={50} color={'black'} />
+                    Chưa có blog
                 </div>
             </div>
         );
@@ -36,10 +36,15 @@ const Blog = () => {
 
 
     return (
-        <div className='blog-page-container' >
-            <ImgLogoBlog />
-            <PostComponent blogs={blogs} />
-        </div>
+        <>
+            {blogs.length < 1 ? <LoadingSpin size={50} color={'black'} /> : <div className='blog-page-container' >
+                <ImgLogoBlog />
+                <PostComponent blogs={blogs} />
+            </div>}
+        </>
+
+
+
     )
 }
 
