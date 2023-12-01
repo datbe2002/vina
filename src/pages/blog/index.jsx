@@ -15,36 +15,13 @@ const Blog = () => {
     }, [dispatch])
 
     const blogs = useSelector((state) => state.blog?.blogCollection)
-
-    if (blogs.length < 1) {
-        return (
-            <div className='blog-page-container'>
-                <ImgLogoBlog />
-                <div
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        height: '30vh',
-                    }}
-                >
-                    Chưa có blog
-                </div>
-            </div>
-        );
-    }
-
-
     return (
         <>
-            {blogs.length >= 1 ? <LoadingSpin size={50} color={'black'} /> : <div className='blog-page-container' >
+            {blogs.length < 1 ? <LoadingSpin size={50} color={'black'} /> : <div className='blog-page-container' >
                 <ImgLogoBlog />
                 <PostComponent blogs={blogs} />
             </div>}
         </>
-
-
-
     )
 }
 
