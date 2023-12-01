@@ -37,7 +37,7 @@ const Blog = () => {
 
     return (
         <>
-            {blogs.length < 1 ? <LoadingSpin size={50} color={'black'} /> : <div className='blog-page-container' >
+            {blogs.length >= 1 ? <LoadingSpin size={50} color={'black'} /> : <div className='blog-page-container' >
                 <ImgLogoBlog />
                 <PostComponent blogs={blogs} />
             </div>}
